@@ -4,7 +4,7 @@ import {StyleSheet, Text, View} from 'react-native';
 const TodayScreen = () => {
   return (
     <View style={styles.container}>
-      <Text>Today</Text>
+      <Text>AA</Text>
     </View>
   );
 };
@@ -15,6 +15,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#F8F8FF',
+  },
+  calendar: {
+    width: 300,
+    height: 300,
   },
 });
 

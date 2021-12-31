@@ -1,12 +1,12 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import Tabs from './Tabs';
 
 const App = () => {
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <Tabs />
-    </SafeAreaView>
+    </View>
   );
 };
 

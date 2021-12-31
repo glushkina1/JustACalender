@@ -14,7 +14,7 @@ const Tabs = () => {
     <View style={styles.container}>
       <NavigationContainer>
         <Tab.Navigator
-          initialRouteName="Today"
+          initialRouteName="Calendar"
           screenOptions={({route}: any) => ({
             headerShown: false,
             tabBarIcon: ({focused, size, color}) => {
@@ -47,8 +47,6 @@ const styles = StyleSheet.create({
     flex: 1,
     // borderColor:'red',
     // borderWidth:5,
-    alignSelf: 'center',
-    width: Dimensions.get('window').width * 0.95,
     height: Dimensions.get('window').height * 0.9,
   },
 });
