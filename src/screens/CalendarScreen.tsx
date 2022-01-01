@@ -52,7 +52,8 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   calendar: {
-    justifyContent: 'center',
+    justifyContent:'flex-end',
+    paddingBottom:40,
     width: '100%',
     height: '90%',
     borderRadius: 30,
