@@ -1,44 +1,39 @@
-/* eslint-disable */
-import React, {useState} from 'react';
-import {Dimensions, SafeAreaView, StyleSheet, Text, View} from 'react-native';
-import {Calendar} from 'react-native-calendars';
-import CalendarHeader from '../CalendarHeader';
-import {format} from 'date-fns';
+import { format } from 'date-fns'
+import React, { useState } from 'react'
+import { Dimensions, SafeAreaView, StyleSheet, Text, View } from 'react-native'
+import { Calendar } from 'react-native-calendars'
+
+import CalendarHeader from '../CalendarHeader'
 
 const CalendarScreen = () => {
-  const [currentDate, setCurrentDate] = useState(new Date());
-  const [showJumpToday, setShowJumpToday] = useState(false);
+  const [currentDate, setCurrentDate] = useState(new Date())
+  const [showJumpToday, setShowJumpToday] = useState(false)
 
-  let dateFormatter = (currentDate: Date) => {
-    return format(currentDate, 'yyyy-MM');
-  };
+  const dateFormatter = (currentDate: Date) => {
+    return format(currentDate, 'yyyy-MM')
+  }
 
   const CalendarHeaderHandler = () => {
-    return CalendarHeader(
-      currentDate,
-      setCurrentDate,
-      showJumpToday,
-      setShowJumpToday,
-    );
-  };
+    return CalendarHeader(currentDate, setCurrentDate, showJumpToday, setShowJumpToday)
+  }
 
   return (
     <SafeAreaView style={styles.screenContainer}>
-      <View style={{...styles.calendarContainer, ...styles.itemContainer}}>
+      <View style={{ ...styles.calendarContainer, ...styles.itemContainer }}>
         <Calendar
           current={dateFormatter(currentDate)}
-          key={dateFormatter(currentDate)}
           customHeader={CalendarHeaderHandler}
-          style={styles.calendar}
           firstDay={1}
+          key={dateFormatter(currentDate)}
+          style={styles.calendar}
         />
       </View>
-      <View style={{...styles.infoContainer, ...styles.itemContainer}}>
+      <View style={{ ...styles.infoContainer, ...styles.itemContainer }}>
         <Text style={styles.infoText}>INFO</Text>
       </View>
     </SafeAreaView>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   screenContainer: {
@@ -70,6 +65,6 @@ const styles = StyleSheet.create({
   infoText: {
     alignItems: 'center',
   },
-});
+})
 
-export default CalendarScreen;
+export default CalendarScreen
