@@ -9,7 +9,7 @@ import ProfileScreen from './screens/ProfileScreen'
 import TodayScreen from './screens/TodayScreen'
 
 const Tab = createBottomTabNavigator()
-Ionicons.loadFont()
+void Ionicons.loadFont()
 const Tabs = () => {
   return (
     <View style={styles.container}>
