@@ -1,13 +1,13 @@
-import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import React from 'react'
+import { StyleSheet, Text, View } from 'react-native'
 
 const ProfileScreen = () => {
   return (
     <View style={styles.container}>
-      <Text>AAA</Text>
+      <Text>Profile Screen</Text>
     </View>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -16,6 +16,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#F8F8FF',
   },
-});
+})
 
-export default ProfileScreen;
+
+export { ProfileScreen }

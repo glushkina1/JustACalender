@@ -4,6 +4,7 @@ import { StyleSheet, View } from 'react-native'
 import Tabs from './Tabs'
 
 const App = () => {
+
   return (
     <View style={styles.container}>
       <Tabs />
@@ -18,4 +19,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default App
+export { App }

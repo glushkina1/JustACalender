@@ -1,13 +1,13 @@
-import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import React from 'react'
+import { StyleSheet, Text, View } from 'react-native'
 
 const TodayScreen = () => {
   return (
     <View style={styles.container}>
-      <Text>AA</Text>
+      <Text>Today Screen</Text>
     </View>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -20,6 +20,6 @@ const styles = StyleSheet.create({
     width: 300,
     height: 300,
   },
-});
+})
 
-export default TodayScreen;
+export { TodayScreen }

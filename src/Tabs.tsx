@@ -4,12 +4,14 @@ import React from 'react'
 import { StyleSheet, View, Dimensions } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
-import CalendarScreen from './screens/CalendarScreen'
-import ProfileScreen from './screens/ProfileScreen'
-import TodayScreen from './screens/TodayScreen'
+import { CalendarScreen } from './screens/CalendarScreen'
+import { ProfileScreen } from './screens/ProfileScreen'
+import { TodayScreen } from './screens/TodayScreen'
 
 const Tab = createBottomTabNavigator()
 void Ionicons.loadFont()
+
+
 const Tabs = () => {
   return (
     <View style={styles.container}>
@@ -19,7 +21,7 @@ const Tabs = () => {
           screenOptions={({ route }: any) => ({
             headerShown: false,
             tabBarIcon: ({ focused, size, color }) => {
-              let iconName
+              let iconName = ""
               if (route.name === 'Today') {
                 iconName = focused ? 'flower' : 'flower-outline'
               } else if (route.name === 'Profile') {
@@ -28,10 +30,6 @@ const Tabs = () => {
                 iconName = focused ? 'calendar' : 'calendar-outline'
               }
               return <Ionicons color={color} name={iconName} size={size} />
-            },
-            tabBarOptions: {
-              tabBarActiveTintColor: 'tomato',
-              tabBarInactiveTintColor: 'grey',
             },
           })}
         >
@@ -47,8 +45,6 @@ const Tabs = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // borderColor:'red',
-    // borderWidth:5,
     height: Dimensions.get('window').height * 0.9,
   },
 })
