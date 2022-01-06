@@ -15,13 +15,7 @@ interface CalendarHeaderProps {
   setShowJumpToday: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const CalendarHeader = ({
-  currentDate,
-  setCurrentDate,
-  showJumpToday,
-  setShowJumpToday,
-}: CalendarHeaderProps): object => {
-  // const dateTitle = useMemo(() => toLocaleDate(currentDate, 'en-us'), [currentDate])
+const CalendarHeader = ({ currentDate, setCurrentDate, showJumpToday, setShowJumpToday }: CalendarHeaderProps) => {
   const now = new Date()
 
   const jumpToToday = () => {
@@ -126,9 +120,9 @@ const styles = StyleSheet.create({
     color: 'black',
   },
   jumpTextContainer: {
-    flexDirection:'row',
-    justifyContent:'center',
-    alignItems:'center',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
     height: 30,
   },
   jumpText: {
@@ -136,7 +130,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   weekDaysContainer: {
-    marginTop:10,
+    marginTop: 10,
     height: 20,
   },
 })

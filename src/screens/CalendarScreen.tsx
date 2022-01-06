@@ -4,11 +4,14 @@ import { Calendar } from 'react-native-calendars'
 import { CalendarHeader } from '../CalendarHeader'
 import { format } from 'date-fns'
 import { lightTheme } from '../colors'
+import { DateData } from 'react-native-calendars/src/types'
+import { ModalConfirmDay } from '../ModalConfirmDay'
 
 const CalendarScreen = () => {
+  const [modalVisible, setModalVisible] = useState<boolean>(false)
   const [currentDate, setCurrentDate] = useState<Date>(new Date())
   const [showJumpToday, setShowJumpToday] = useState<boolean>(false)
-
+  const [selectedDay, setSelectedDay] = useState<DateData>()
 
   let dateFormatter = (currentDate: Date) => {
     return format(currentDate, 'yyyy-MM')
@@ -16,6 +19,12 @@ const CalendarScreen = () => {
 
   const CalendarHeaderHandler = () => {
     return CalendarHeader({ currentDate, setCurrentDate, showJumpToday, setShowJumpToday })
+  }
+
+  const handleDayPress = (day: DateData) => {
+    setModalVisible(true)
+    setSelectedDay(day)
+    console.log('selected day', day)
   }
 
   return (
@@ -27,12 +36,18 @@ const CalendarScreen = () => {
           customHeader={CalendarHeaderHandler}
           style={styles.calendar}
           firstDay={1}
+          onDayPress={day => {
+            handleDayPress(day)
+          }}
         />
       </View>
       <View style={[styles.itemContainer, styles.infoContainer]}>
         <View style={styles.infoTextView}>
           <Text style={styles.infoText}>INFO</Text>
         </View>
+      </View>
+      <View>
+        <ModalConfirmDay modalVisible={modalVisible} setModalVisible={setModalVisible} selectedDay={selectedDay} />
       </View>
     </SafeAreaView>
   )
@@ -50,10 +65,11 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   calendar: {
-    paddingTop:125,
+    paddingTop: 125,
     width: '100%',
     height: '88%',
     borderRadius: 30,
+    marginBottom: 20,
   },
   infoContainer: {
     flex: 1,
@@ -71,6 +87,26 @@ const styles = StyleSheet.create({
     height: '70%',
     backgroundColor: 'white',
     borderRadius: 30,
+  },
+  button: {
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2,
+  },
+  buttonOpen: {
+    backgroundColor: '#F194FF',
+  },
+  buttonClose: {
+    backgroundColor: '#2196F3',
+  },
+  textStyle: {
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: 'center',
   },
 })
 

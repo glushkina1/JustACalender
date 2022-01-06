@@ -1,14 +1,16 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
+import {rootStore, StoreProvider} from './store'
 
 import Tabs from './Tabs'
 
 const App = () => {
-
   return (
-    <View style={styles.container}>
-      <Tabs />
-    </View>
+    <StoreProvider value={rootStore}>
+      <View style={styles.container}>
+        <Tabs />
+      </View>
+    </StoreProvider>
   )
 }
 
