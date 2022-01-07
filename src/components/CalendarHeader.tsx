@@ -4,7 +4,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import Icons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { WeekDays } from './WeekDays'
 
-import { toLocaleDate } from './toLocaleDate'
+import { toLocaleDate } from '../functions/toLocaleDate'
 
 void Icons.loadFont()
 

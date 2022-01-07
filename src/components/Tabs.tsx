@@ -4,9 +4,9 @@ import React from 'react'
 import { StyleSheet, View, Dimensions } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
-import { CalendarScreen } from './screens/CalendarScreen'
-import { ProfileScreen } from './screens/ProfileScreen'
-import { TodayScreen } from './screens/TodayScreen'
+import { CalendarScreen } from '../screens/CalendarScreen'
+import { ProfileScreen } from '../screens/ProfileScreen'
+import { TodayScreen } from '../screens/TodayScreen'
 
 const Tab = createBottomTabNavigator()
 void Ionicons.loadFont()

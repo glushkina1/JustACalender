@@ -1,17 +1,18 @@
 import React, { useState } from 'react'
 import { Dimensions, SafeAreaView, StyleSheet, Text, View } from 'react-native'
 import { Calendar } from 'react-native-calendars'
-import { CalendarHeader } from '../CalendarHeader'
+import { CalendarHeader } from '../components/CalendarHeader'
 import { format } from 'date-fns'
-import { lightTheme } from '../colors'
+import { lightTheme } from '../styles/globalColors'
 import { DateData } from 'react-native-calendars/src/types'
-import { ModalConfirmDay } from '../ModalConfirmDay'
+import { ModalConfirmDay } from '../components/ModalConfirmDay'
+import { markedDates } from '../functions/fillMarkedDays'
 
 const CalendarScreen = () => {
   const [modalVisible, setModalVisible] = useState<boolean>(false)
   const [currentDate, setCurrentDate] = useState<Date>(new Date())
   const [showJumpToday, setShowJumpToday] = useState<boolean>(false)
-  const [selectedDay, setSelectedDay] = useState<DateData>()
+  const [selectedDay, setSelectedDay] = useState<string>('')
 
   let dateFormatter = (currentDate: Date) => {
     return format(currentDate, 'yyyy-MM')
@@ -23,8 +24,7 @@ const CalendarScreen = () => {
 
   const handleDayPress = (day: DateData) => {
     setModalVisible(true)
-    setSelectedDay(day)
-    console.log('selected day', day)
+    setSelectedDay(day.dateString)
   }
 
   return (
@@ -39,6 +39,8 @@ const CalendarScreen = () => {
           onDayPress={day => {
             handleDayPress(day)
           }}
+          markingType={'period'}
+          markedDates={markedDates()}
         />
       </View>
       <View style={[styles.itemContainer, styles.infoContainer]}>

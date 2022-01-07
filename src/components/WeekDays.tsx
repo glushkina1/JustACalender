@@ -1,7 +1,7 @@
 import { Dimensions, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-import { lightTheme } from './colors'
+import { lightTheme } from '../styles/globalColors'
 
 const WeekDays = () => {
   const weekDaysArray = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']

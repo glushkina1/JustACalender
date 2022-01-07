@@ -1,23 +1,16 @@
+import { observer } from 'mobx-react-lite'
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
-import {useStore} from "../store";
-import {ClassPeriodType} from "../types";
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
-const TodayScreen = () => {
-  const rootStore = useStore()
+const TodayScreen = observer(() => {
   return (
     <View style={styles.container}>
-      {rootStore.classes.items.map((item: ClassPeriodType) => {
-        return (
-            <View key={`${item.id}`} style={{marginBottom: 15}}>
-            <Text>{item.dateStart}</Text>
-            </View>
-        );
-      })}
-      <Text>Today Screen</Text>
+      <TouchableOpacity onPress={() => null}>
+        <Text>Today</Text>
+      </TouchableOpacity>
     </View>
   )
-}
+})
 
 const styles = StyleSheet.create({
   container: {

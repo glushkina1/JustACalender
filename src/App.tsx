@@ -1,12 +1,12 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
-import {rootStore, StoreProvider} from './store'
+import {periodStore, StoreProvider} from './store'
 
-import Tabs from './Tabs'
+import Tabs from './components/Tabs'
 
 const App = () => {
   return (
-    <StoreProvider value={rootStore}>
+    <StoreProvider value={periodStore}>
       <View style={styles.container}>
         <Tabs />
       </View>

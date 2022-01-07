@@ -1,16 +1,20 @@
 import React from 'react'
 import { Alert, Dimensions, Modal, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import {lightTheme} from "./colors"
-import { fillMarkedDays } from './fillMarkedDays'
-import {DateData} from "react-native-calendars/src/types";
+import { lightTheme } from '../colors'
+import { fillMarkedDays } from '../functions/fillMarkedDays'
 
 interface ModalConfirmDayProps {
   modalVisible: boolean
   setModalVisible: React.Dispatch<React.SetStateAction<boolean>>
-  selectedDay: DateData | undefined
+  selectedDay: string
 }
 
 const ModalConfirmDay = ({ modalVisible, setModalVisible, selectedDay }: ModalConfirmDayProps) => {
+  const handlePeriodStarts = () => {
+    fillMarkedDays(selectedDay)
+    setModalVisible(false)
+  }
+
   return (
     <View style={styles.centeredView}>
       <Modal
@@ -23,7 +27,7 @@ const ModalConfirmDay = ({ modalVisible, setModalVisible, selectedDay }: ModalCo
         }}
       >
         <View style={styles.modalView}>
-          <TouchableOpacity style={styles.button} onPress={() => fillMarkedDays(selectedDay)}>
+          <TouchableOpacity style={styles.button} onPress={() => handlePeriodStarts()}>
             <Text style={styles.textStyle}>Period starts</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.button} onPress={() => setModalVisible(!modalVisible)}>
