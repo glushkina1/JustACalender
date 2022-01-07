@@ -1,6 +1,6 @@
 import React from 'react'
 import { Alert, Dimensions, Modal, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import { lightTheme } from '../colors'
+import { lightTheme } from '../styles/globalColors'
 import { fillMarkedDays } from '../functions/fillMarkedDays'
 
 interface ModalConfirmDayProps {
