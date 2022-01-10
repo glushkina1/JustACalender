@@ -1,16 +1,28 @@
 import { createContext, useContext } from 'react'
 import { makeAutoObservable } from 'mobx'
-import { remainingDayStyle, lastDayStyle, firstDayStyle } from '../styles/markedDayStyle'
+import { AsyncTrunk } from 'mobx-sync'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 export const periodStore = makeAutoObservable({
-  periods: {
-    '2022-01-16': firstDayStyle,
-    '2022-01-17': remainingDayStyle,
-    '2022-01-18': lastDayStyle,
+  isDarkMode: false,
+  periods: {},
+  // addRemainingDay(day: object) {
+  //   this.periods = Object.assign(this.periods, day);
+  // },
+  resetEverything() {
+    this.periods = {}
+  },
+  darkMode() {
+    this.isDarkMode = true
+  },
+  lightMode() {
+    this.isDarkMode = false
   },
 })
 
+export const trunk = new AsyncTrunk(periodStore, {
+  storage: AsyncStorage,
+})
 export const StoreContext = createContext(periodStore)
 export const StoreProvider = StoreContext.Provider
 export const useStore = () => useContext(StoreContext)
-

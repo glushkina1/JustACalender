@@ -17,7 +17,7 @@ const Tabs = () => {
     <View style={styles.container}>
       <NavigationContainer>
         <Tab.Navigator
-          initialRouteName="Calendar"
+          initialRouteName="Profile"
           screenOptions={({ route }: any) => ({
             headerShown: false,
             tabBarIcon: ({ focused, size, color }) => {

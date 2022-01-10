@@ -2,6 +2,7 @@ import { addDays, format } from 'date-fns'
 import { periodStore } from '../store'
 import {firstDayStyle, remainingDayStyle, lastDayStyle} from '../styles/markedDayStyle'
 
+
 const fillMarkedDays = (selectedDay: string) => {
   const { firstDay, lastDay }: { firstDay: string; lastDay: string } = getLastFirstDay(selectedDay)
 

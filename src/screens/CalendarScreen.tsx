@@ -1,18 +1,23 @@
 import React, { useState } from 'react'
-import { Dimensions, SafeAreaView, StyleSheet, Text, View } from 'react-native'
+import {Dimensions, SafeAreaView, StyleSheet, Text, TouchableOpacity, View} from 'react-native'
 import { Calendar } from 'react-native-calendars'
 import { CalendarHeader } from '../components/CalendarHeader'
 import { format } from 'date-fns'
-import { lightTheme } from '../styles/globalColors'
 import { DateData } from 'react-native-calendars/src/types'
 import { ModalConfirmDay } from '../components/ModalConfirmDay'
 import { markedDates } from '../functions/fillMarkedDays'
+import { useTheme } from 'react-native-paper'
+import {periodStore} from "../store";
+import {observer} from "mobx-react-lite";
 
-const CalendarScreen = () => {
+const CalendarScreen = observer(({}) => {
   const [modalVisible, setModalVisible] = useState<boolean>(false)
   const [currentDate, setCurrentDate] = useState<Date>(new Date())
   const [showJumpToday, setShowJumpToday] = useState<boolean>(false)
   const [selectedDay, setSelectedDay] = useState<string>('')
+
+  const { colors } = useTheme()
+  const styles = makeStyles(colors)
 
   let dateFormatter = (currentDate: Date) => {
     return format(currentDate, 'yyyy-MM')
@@ -45,6 +50,7 @@ const CalendarScreen = () => {
       </View>
       <View style={[styles.itemContainer, styles.infoContainer]}>
         <View style={styles.infoTextView}>
+          <TouchableOpacity onPress={() => periodStore.resetEverything()}><Text style={styles.infoText}>RESET</Text></TouchableOpacity>
           <Text style={styles.infoText}>INFO</Text>
         </View>
       </View>
@@ -53,14 +59,14 @@ const CalendarScreen = () => {
       </View>
     </SafeAreaView>
   )
-}
+})
 
-const styles = StyleSheet.create({
+const makeStyles = (colors: any) => StyleSheet.create({
   screenContainer: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: lightTheme.background,
+    backgroundColor: colors.background,
   },
   calendarContainer: {
     flex: 3,
