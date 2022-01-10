@@ -1,7 +1,7 @@
-import { createContext, useContext } from 'react'
 import { makeAutoObservable } from 'mobx'
 import { AsyncTrunk } from 'mobx-sync'
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import { createContext, useContext } from 'react'
 
 export const periodStore = makeAutoObservable({
   isDarkMode: false,

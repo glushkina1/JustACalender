@@ -1,5 +1,11 @@
 import { lightTheme } from './globalColors'
 
-export const firstDayStyle = { color: lightTheme.colors.background, startingDay: true }
-export const lastDayStyle = { color: lightTheme.colors.background, endingDay: true }
-export const remainingDayStyle = { color: lightTheme.colors.background }
+export interface DayStyle {
+  color: string
+  startingDay?: boolean
+  endingDay?: boolean
+}
+
+export const firstDayStyle: DayStyle = { color: lightTheme.background, startingDay: true }
+export const lastDayStyle: DayStyle = { color: lightTheme.background, endingDay: true }
+export const remainingDayStyle: DayStyle = { color: lightTheme.background }
