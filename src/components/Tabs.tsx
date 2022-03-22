@@ -1,46 +1,87 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { NavigationContainer } from '@react-navigation/native'
-import React from 'react'
-import { StyleSheet, View, Dimensions } from 'react-native'
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
+import React, {useContext} from 'react'
+import {Dimensions, StyleSheet, Text, View} from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
-import { CalendarScreen } from '../screens/CalendarScreen'
-import { ProfileScreen } from '../screens/ProfileScreen'
-import { TodayScreen } from '../screens/TodayScreen'
+import {CalendarScreen} from '../screens/CalendarScreen'
+import {SettingsScreen} from '../screens/SettingsScreen'
+import {TodayScreen} from '../screens/TodayScreen'
+import {useTheme} from 'react-native-paper'
+import {observer} from "mobx-react-lite";
+import {LocalizationContext} from "../locale/LocalizationContext";
 
 const Tab = createBottomTabNavigator()
 void Ionicons.loadFont()
 
 
-const Tabs = () => {
+const Tabs = observer(({}) => {
+  const { colors } = useTheme()
+  const {translations} = useContext(LocalizationContext);
+
+  const focusedRouteIcons: Record<string, string> = {
+    Today: 'flower',
+    Settings: 'settings',
+    Calendar: 'calendar',
+  }
+  const unfocusedRouteIcons: Record<string, string> = {
+    Today: 'flower-outline',
+    Settings: 'settings-outline',
+    Calendar: 'calendar-outline',
+  }
   return (
     <View style={styles.container}>
-      <NavigationContainer>
         <Tab.Navigator
-          initialRouteName="Profile"
+          initialRouteName='Today'
           screenOptions={({ route }: any) => ({
+            tabBarStyle: {
+              height: 90,
+              paddingTop: 8,
+              backgroundColor: colors.tab,
+              borderTopColor:'grey',
+              borderTopWidth:1,
+            },
+            tabBarLabelStyle: { fontSize: 13, marginTop: 5 },
+            tabBarActiveTintColor: colors.background,
+            tabBarInactiveTintColor: colors.tabsInactive,
             headerShown: false,
-            tabBarIcon: ({ focused, size, color }) => {
-              let iconName = ""
-              if (route.name === 'Today') {
-                iconName = focused ? 'flower' : 'flower-outline'
-              } else if (route.name === 'Profile') {
-                iconName = focused ? 'person' : 'person-outline'
-              } else if (route.name === 'Calendar') {
-                iconName = focused ? 'calendar' : 'calendar-outline'
+            tabBarLabel: ({focused}) => {
+              let label: string
+              let color: string
+              if (focused) {
+                color = colors.tabsActive
+              } else {
+                color = colors.tabsInactive
               }
-              return <Ionicons color={color} name={iconName} size={size} />
+              if (route.name === 'Today') {
+                label = translations.today
+              } else if (route.name === 'Calendar') {
+                label = translations.calendar
+              } else {
+                label = translations.settings
+              }
+              return <Text style={{ color }}>{label}</Text>
+            },
+            tabBarIcon: ({ focused }) => {
+              let iconName: string
+              let color: string
+              if (focused) {
+                color = colors.tabsActive
+                iconName = focusedRouteIcons[route.name]
+              } else {
+                color = colors.tabsInactive
+                iconName = unfocusedRouteIcons[route.name]
+              }
+              return <Ionicons color={color} name={iconName} size={25} />
             },
           })}
         >
-          <Tab.Screen component={TodayScreen} name="Today" />
-          <Tab.Screen component={CalendarScreen} name="Calendar" />
-          <Tab.Screen component={ProfileScreen} name="Profile" />
+          <Tab.Screen component={TodayScreen} name='Today'/>
+          <Tab.Screen component={CalendarScreen} name='Calendar'/>
+          <Tab.Screen component={SettingsScreen} name='Settings'/>
         </Tab.Navigator>
-      </NavigationContainer>
     </View>
   )
-}
+})
 
 const styles = StyleSheet.create({
   container: {

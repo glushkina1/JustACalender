@@ -1,121 +1,134 @@
-import React, { useState } from 'react'
-import {Dimensions, SafeAreaView, StyleSheet, Text, TouchableOpacity, View} from 'react-native'
+import React, {useContext, useState} from 'react'
+import { Dimensions, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { Calendar } from 'react-native-calendars'
 import { CalendarHeader } from '../components/CalendarHeader'
+import { DatePatter } from '../constants'
 import { format } from 'date-fns'
 import { DateData } from 'react-native-calendars/src/types'
 import { ModalConfirmDay } from '../components/ModalConfirmDay'
 import { markedDates } from '../functions/fillMarkedDays'
 import { useTheme } from 'react-native-paper'
-import {periodStore} from "../store";
-import {observer} from "mobx-react-lite";
+import { observer } from 'mobx-react-lite'
+import { useStore } from '../store/rootStore'
+import {LocalizationContext} from "../locale/LocalizationContext";
 
 const CalendarScreen = observer(({}) => {
+  const store = useStore()
   const [modalVisible, setModalVisible] = useState<boolean>(false)
-  const [currentDate, setCurrentDate] = useState<Date>(new Date())
+  const [selectedDate, setSelectedDate] = useState<Date>(new Date())
   const [showJumpToday, setShowJumpToday] = useState<boolean>(false)
-  const [selectedDay, setSelectedDay] = useState<string>('')
+  const [pressedDay, setPressedDay] = useState<string>('')
+  const {translations} = useContext(LocalizationContext);
 
   const { colors } = useTheme()
   const styles = makeStyles(colors)
 
-  let dateFormatter = (currentDate: Date) => {
-    return format(currentDate, 'yyyy-MM')
+  let dateFormatter = (selectedDate: Date) => {
+    return format(selectedDate, DatePatter.YEAR_MONTH)
   }
 
   const CalendarHeaderHandler = () => {
-    return CalendarHeader({ currentDate, setCurrentDate, showJumpToday, setShowJumpToday })
+    return CalendarHeader({ selectedDate, setSelectedDate, showJumpToday, setShowJumpToday })
   }
 
   const handleDayPress = (day: DateData) => {
     setModalVisible(true)
-    setSelectedDay(day.dateString)
+    setPressedDay(day.dateString)
   }
 
   return (
     <SafeAreaView style={styles.screenContainer}>
-      <View style={[styles.calendarContainer, styles.itemContainer]}>
+      <View style={styles.calendarContainer}>
         <Calendar
-          current={dateFormatter(currentDate)}
-          key={dateFormatter(currentDate)}
+          current={dateFormatter(selectedDate)}
+          key={dateFormatter(selectedDate)}
           customHeader={CalendarHeaderHandler}
           style={styles.calendar}
           firstDay={1}
           onDayPress={day => {
             handleDayPress(day)
           }}
+          theme={{
+            todayTextColor: 'black',
+            dayTextColor: 'white',
+            textDisabledColor: 'grey',
+            calendarBackground: colors.calendar,
+          }}
           markingType={'period'}
           markedDates={markedDates()}
         />
       </View>
-      <View style={[styles.itemContainer, styles.infoContainer]}>
-        <View style={styles.infoTextView}>
-          <TouchableOpacity onPress={() => periodStore.resetEverything()}><Text style={styles.infoText}>RESET</Text></TouchableOpacity>
-          <Text style={styles.infoText}>INFO</Text>
+      <View style={styles.infoContainer}>
+        <View style={styles.infoTextContainer}>
+          <TouchableOpacity onPress={() => store.resetEverything()}>
+            <Text style={styles.infoText}>{translations.resetEverything}</Text>
+          </TouchableOpacity>
+          <Text style={styles.infoText}>{translations.info}</Text>
         </View>
       </View>
       <View>
-        <ModalConfirmDay modalVisible={modalVisible} setModalVisible={setModalVisible} selectedDay={selectedDay} />
+        <ModalConfirmDay modalVisible={modalVisible} setModalVisible={setModalVisible} pressedDay={pressedDay} />
       </View>
     </SafeAreaView>
   )
 })
 
-const makeStyles = (colors: any) => StyleSheet.create({
-  screenContainer: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: colors.background,
-  },
-  calendarContainer: {
-    flex: 3,
-    justifyContent: 'flex-end',
-  },
-  calendar: {
-    paddingTop: 125,
-    width: '100%',
-    height: '88%',
-    borderRadius: 30,
-    marginBottom: 20,
-  },
-  infoContainer: {
-    flex: 1,
-    justifyContent: 'flex-start',
-  },
-  itemContainer: {
-    width: Dimensions.get('window').width * 0.95,
-    height: Dimensions.get('window').height * 0.45,
-  },
-  infoText: {
-    alignItems: 'center',
-    padding: 20,
-  },
-  infoTextView: {
-    height: '70%',
-    backgroundColor: 'white',
-    borderRadius: 30,
-  },
-  button: {
-    borderRadius: 20,
-    padding: 10,
-    elevation: 2,
-  },
-  buttonOpen: {
-    backgroundColor: '#F194FF',
-  },
-  buttonClose: {
-    backgroundColor: '#2196F3',
-  },
-  textStyle: {
-    color: 'white',
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
-  modalText: {
-    marginBottom: 15,
-    textAlign: 'center',
-  },
-})
+const makeStyles = (colors: any) =>
+  StyleSheet.create({
+    screenContainer: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: colors.background,
+    },
+    calendarContainer: {
+      flex: 4,
+      justifyContent: 'flex-end',
+      height: 350,
+      color: colors.calendar,
+    },
+    calendar: {
+      backgroundColor: colors.calendar,
+      flex: 1,
+      paddingTop: 90,
+      height: 300,
+      justifyContent: 'center',
+      borderRadius: 30,
+      marginBottom: 50,
+      marginTop: 50,
+      width: Dimensions.get('window').width * 0.95,
+    },
+    infoContainer: {
+      flex: 1,
+      justifyContent: 'flex-start',
+      width: Dimensions.get('window').width * 0.95,
+    },
+    infoText: {
+      alignItems: 'center',
+      padding: 20,
+      fontFamily: 'YanoneKaffeesatz-Light',
+      fontSize: 20,
+      color: colors.text,
+    },
+    infoTextContainer: {
+      backgroundColor: colors.calendar,
+      borderRadius: 30,
+    },
+    button: {
+      borderRadius: 20,
+      padding: 10,
+      elevation: 2,
+    },
+    buttonOpen: {
+      backgroundColor: '#F194FF',
+    },
+    buttonClose: {
+      backgroundColor: '#2196F3',
+    },
+    modalText: {
+      marginBottom: 15,
+      textAlign: 'center',
+    },
+  })
 
 export { CalendarScreen }

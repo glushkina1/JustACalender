@@ -1,8 +1,15 @@
-const toLocaleDate = (date: Date, locales: string) => {
+const toLocaleDateHeader = (date: Date, locales: string) => {
   return date.toLocaleDateString(locales, {
     year: 'numeric',
     month: 'long',
   })
 }
 
-export { toLocaleDate }
+const toLocaleDateToday = (date: Date, locales: string) => {
+  return date.toLocaleDateString(locales, {
+    day:'numeric',
+    month: 'long',
+  })
+}
+
+export { toLocaleDateHeader, toLocaleDateToday }

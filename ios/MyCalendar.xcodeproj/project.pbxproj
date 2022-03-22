@@ -8,13 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* MyCalendarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* MyCalendarTests.m */; };
+		0600781E60054AE1855E99CA /* YanoneKaffeesatz-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 34704D15A15C48189880F414 /* YanoneKaffeesatz-ExtraLight.ttf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		2DCFEFBCDDE54F5F9B2AA2C3 /* AmaticSC-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 432997FC88D6495B91663321 /* AmaticSC-Bold.ttf */; };
 		5594DE952776609600E0AACF /* metro.config.js in Resources */ = {isa = PBXBuildFile; fileRef = 5594DE842776609500E0AACF /* metro.config.js */; };
+		55D0617B27AC834F000557F4 /* AmaticSC-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55D0617527AC834F000557F4 /* AmaticSC-Bold.ttf */; };
+		55D0617D27AC834F000557F4 /* AmaticSC-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55D0617627AC834F000557F4 /* AmaticSC-Regular.ttf */; };
+		55D0617F27AC834F000557F4 /* YanoneKaffeesatz-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55D0617727AC834F000557F4 /* YanoneKaffeesatz-ExtraLight.ttf */; };
+		55D0618127AC834F000557F4 /* YanoneKaffeesatz-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55D0617827AC834F000557F4 /* YanoneKaffeesatz-Light.ttf */; };
+		55D0618327AC834F000557F4 /* YanoneKaffeesatz-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55D0617927AC834F000557F4 /* YanoneKaffeesatz-VariableFont_wght.ttf */; };
 		6172F2D35A4C3AA820D92908 /* libPods-MyCalendar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6423831EA8574132BED9D8CC /* libPods-MyCalendar.a */; };
 		7EF68E3733C33B6898317E18 /* libPods-MyCalendar-MyCalendarTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABFE59519B596E51CEFDCCC0 /* libPods-MyCalendar-MyCalendarTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		92583174085B4D8FB233249A /* AmaticSC-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B63BE79F33CD4F7EA464C00F /* AmaticSC-Regular.ttf */; };
+		972EFA1E62A64C6296A01411 /* YanoneKaffeesatz-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33C1F5EB6813486A9B753592 /* YanoneKaffeesatz-VariableFont_wght.ttf */; };
+		9FF84A57E7984D2FA4648202 /* YanoneKaffeesatz-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F809A2E8E4C24E16B0EDCB32 /* YanoneKaffeesatz-Light.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +41,8 @@
 		00E356EE1AD99517003FC87E /* MyCalendarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyCalendarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* MyCalendarTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCalendarTests.m; sourceTree = "<group>"; };
+		039E939B2FB8423D88F23470 /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
+		0F068E1F728B4DC08B033F59 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* MyCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = MyCalendar/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = MyCalendar/AppDelegate.m; sourceTree = "<group>"; };
@@ -38,6 +50,14 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = MyCalendar/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = MyCalendar/main.m; sourceTree = "<group>"; };
 		1D0AE47A65C8663E3B452821 /* Pods-MyCalendar-MyCalendarTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCalendar-MyCalendarTests.release.xcconfig"; path = "Target Support Files/Pods-MyCalendar-MyCalendarTests/Pods-MyCalendar-MyCalendarTests.release.xcconfig"; sourceTree = "<group>"; };
+		2AD145E12DBA42458B157B51 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
+		2CF1DEC961A54CFB93D54D9D /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
+		2D9430F008C1470690EEB906 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
+		33C1F5EB6813486A9B753592 /* YanoneKaffeesatz-VariableFont_wght.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "YanoneKaffeesatz-VariableFont_wght.ttf"; path = "../assets/fonts/YanoneKaffeesatz-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		34704D15A15C48189880F414 /* YanoneKaffeesatz-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "YanoneKaffeesatz-ExtraLight.ttf"; path = "../assets/fonts/YanoneKaffeesatz-ExtraLight.ttf"; sourceTree = "<group>"; };
+		3CD3BE9003114FB885D560AA /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
+		432997FC88D6495B91663321 /* AmaticSC-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "AmaticSC-Bold.ttf"; path = "../assets/fonts/AmaticSC-Bold.ttf"; sourceTree = "<group>"; };
+		54D7BA5BD77F457291A8912F /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		5594DE7D2776609500E0AACF /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialIcons.ttf; sourceTree = "<group>"; };
 		5594DE7E2776609500E0AACF /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Octicons.ttf; sourceTree = "<group>"; };
 		5594DE7F2776609500E0AACF /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Ionicons.ttf; sourceTree = "<group>"; };
@@ -55,13 +75,34 @@
 		5594DE8B2776609500E0AACF /* EvilIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EvilIcons.ttf; sourceTree = "<group>"; };
 		5594DE8C2776609500E0AACF /* Fontisto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fontisto.ttf; sourceTree = "<group>"; };
 		5594DE8D2776609600E0AACF /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome5_Brands.ttf; sourceTree = "<group>"; };
+		55C7512927AC7BDD0071AB27 /* AmaticSC-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "AmaticSC-Bold.ttf"; path = "MyCalendar/Images.xcassets/fonts/AmaticSC-Bold.ttf"; sourceTree = "<group>"; };
+		55C7512A27AC7BDD0071AB27 /* AmaticSC-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "AmaticSC-Regular.ttf"; path = "MyCalendar/Images.xcassets/fonts/AmaticSC-Regular.ttf"; sourceTree = "<group>"; };
+		55C7512B27AC7BDD0071AB27 /* YanoneKaffeesatz-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "YanoneKaffeesatz-ExtraLight.ttf"; path = "MyCalendar/Images.xcassets/fonts/YanoneKaffeesatz-ExtraLight.ttf"; sourceTree = "<group>"; };
+		55C7512C27AC7BDD0071AB27 /* YanoneKaffeesatz-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "YanoneKaffeesatz-Light.ttf"; path = "MyCalendar/Images.xcassets/fonts/YanoneKaffeesatz-Light.ttf"; sourceTree = "<group>"; };
+		55C7512D27AC7BDD0071AB27 /* YanoneKaffeesatz-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "YanoneKaffeesatz-VariableFont_wght.ttf"; path = "MyCalendar/Images.xcassets/fonts/YanoneKaffeesatz-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		55D0617527AC834F000557F4 /* AmaticSC-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmaticSC-Bold.ttf"; sourceTree = "<group>"; };
+		55D0617627AC834F000557F4 /* AmaticSC-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmaticSC-Regular.ttf"; sourceTree = "<group>"; };
+		55D0617727AC834F000557F4 /* YanoneKaffeesatz-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YanoneKaffeesatz-ExtraLight.ttf"; sourceTree = "<group>"; };
+		55D0617827AC834F000557F4 /* YanoneKaffeesatz-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YanoneKaffeesatz-Light.ttf"; sourceTree = "<group>"; };
+		55D0617927AC834F000557F4 /* YanoneKaffeesatz-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YanoneKaffeesatz-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		6423831EA8574132BED9D8CC /* libPods-MyCalendar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyCalendar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C97AB639B58BBB4B15BBE30 /* Pods-MyCalendar-MyCalendarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCalendar-MyCalendarTests.debug.xcconfig"; path = "Target Support Files/Pods-MyCalendar-MyCalendarTests/Pods-MyCalendar-MyCalendarTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6CD80347B52043DEA84CED06 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
+		725F72E777644415A8E418CB /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
+		7364E8FD80E1466DBD520173 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
+		78F643502E2346188577D2A3 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
+		8062B8D44DEA4F968E4C9423 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = MyCalendar/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8F8B7D71101346558926A04D /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
+		A02B3E28DBB9401F95AF574D /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		A429C38550864E82A38C937B /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		ABFE59519B596E51CEFDCCC0 /* libPods-MyCalendar-MyCalendarTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyCalendar-MyCalendarTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B63BE79F33CD4F7EA464C00F /* AmaticSC-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "AmaticSC-Regular.ttf"; path = "../assets/fonts/AmaticSC-Regular.ttf"; sourceTree = "<group>"; };
 		C0A881CF5CF3F2B244570E2A /* Pods-MyCalendar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCalendar.debug.xcconfig"; path = "Target Support Files/Pods-MyCalendar/Pods-MyCalendar.debug.xcconfig"; sourceTree = "<group>"; };
 		D00AAFFCFCFDA5787532823F /* Pods-MyCalendar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCalendar.release.xcconfig"; path = "Target Support Files/Pods-MyCalendar/Pods-MyCalendar.release.xcconfig"; sourceTree = "<group>"; };
+		DCAD2C95A45747F5944CFB54 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F809A2E8E4C24E16B0EDCB32 /* YanoneKaffeesatz-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "YanoneKaffeesatz-Light.ttf"; path = "../assets/fonts/YanoneKaffeesatz-Light.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +172,11 @@
 				5594DE892776609500E0AACF /* AntDesign.ttf */,
 				5594DE832776609500E0AACF /* Entypo.ttf */,
 				5594DE8B2776609500E0AACF /* EvilIcons.ttf */,
+				55C7512927AC7BDD0071AB27 /* AmaticSC-Bold.ttf */,
+				55C7512A27AC7BDD0071AB27 /* AmaticSC-Regular.ttf */,
+				55C7512B27AC7BDD0071AB27 /* YanoneKaffeesatz-ExtraLight.ttf */,
+				55C7512C27AC7BDD0071AB27 /* YanoneKaffeesatz-Light.ttf */,
+				55C7512D27AC7BDD0071AB27 /* YanoneKaffeesatz-VariableFont_wght.ttf */,
 				5594DE8A2776609500E0AACF /* Feather.ttf */,
 				5594DE812776609500E0AACF /* FontAwesome.ttf */,
 				5594DE8D2776609600E0AACF /* FontAwesome5_Brands.ttf */,
@@ -195,6 +241,32 @@
 		E56E5197567B4EA3B6ED1564 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3CD3BE9003114FB885D560AA /* AntDesign.ttf */,
+				A429C38550864E82A38C937B /* Entypo.ttf */,
+				7364E8FD80E1466DBD520173 /* EvilIcons.ttf */,
+				8F8B7D71101346558926A04D /* Feather.ttf */,
+				55D0617527AC834F000557F4 /* AmaticSC-Bold.ttf */,
+				55D0617627AC834F000557F4 /* AmaticSC-Regular.ttf */,
+				55D0617727AC834F000557F4 /* YanoneKaffeesatz-ExtraLight.ttf */,
+				55D0617827AC834F000557F4 /* YanoneKaffeesatz-Light.ttf */,
+				55D0617927AC834F000557F4 /* YanoneKaffeesatz-VariableFont_wght.ttf */,
+				A02B3E28DBB9401F95AF574D /* FontAwesome.ttf */,
+				2CF1DEC961A54CFB93D54D9D /* FontAwesome5_Brands.ttf */,
+				0F068E1F728B4DC08B033F59 /* FontAwesome5_Regular.ttf */,
+				6CD80347B52043DEA84CED06 /* FontAwesome5_Solid.ttf */,
+				039E939B2FB8423D88F23470 /* Fontisto.ttf */,
+				2AD145E12DBA42458B157B51 /* Foundation.ttf */,
+				54D7BA5BD77F457291A8912F /* Ionicons.ttf */,
+				8062B8D44DEA4F968E4C9423 /* MaterialCommunityIcons.ttf */,
+				2D9430F008C1470690EEB906 /* MaterialIcons.ttf */,
+				78F643502E2346188577D2A3 /* Octicons.ttf */,
+				725F72E777644415A8E418CB /* SimpleLineIcons.ttf */,
+				DCAD2C95A45747F5944CFB54 /* Zocial.ttf */,
+				432997FC88D6495B91663321 /* AmaticSC-Bold.ttf */,
+				B63BE79F33CD4F7EA464C00F /* AmaticSC-Regular.ttf */,
+				34704D15A15C48189880F414 /* YanoneKaffeesatz-ExtraLight.ttf */,
+				F809A2E8E4C24E16B0EDCB32 /* YanoneKaffeesatz-Light.ttf */,
+				33C1F5EB6813486A9B753592 /* YanoneKaffeesatz-VariableFont_wght.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -286,6 +358,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55D0618327AC834F000557F4 /* YanoneKaffeesatz-VariableFont_wght.ttf in Resources */,
+				55D0617D27AC834F000557F4 /* AmaticSC-Regular.ttf in Resources */,
+				55D0618127AC834F000557F4 /* YanoneKaffeesatz-Light.ttf in Resources */,
+				55D0617F27AC834F000557F4 /* YanoneKaffeesatz-ExtraLight.ttf in Resources */,
+				55D0617B27AC834F000557F4 /* AmaticSC-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +373,11 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				5594DE952776609600E0AACF /* metro.config.js in Resources */,
+				2DCFEFBCDDE54F5F9B2AA2C3 /* AmaticSC-Bold.ttf in Resources */,
+				92583174085B4D8FB233249A /* AmaticSC-Regular.ttf in Resources */,
+				0600781E60054AE1855E99CA /* YanoneKaffeesatz-ExtraLight.ttf in Resources */,
+				9FF84A57E7984D2FA4648202 /* YanoneKaffeesatz-Light.ttf in Resources */,
+				972EFA1E62A64C6296A01411 /* YanoneKaffeesatz-VariableFont_wght.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,7 +629,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = kkorg.reactjs.native.example.MyCalendar;
 				PRODUCT_NAME = MyCalendar;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -572,7 +654,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = kkorg.reactjs.native.example.MyCalendar;
 				PRODUCT_NAME = MyCalendar;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -612,7 +694,7 @@
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "arm64 ";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -636,7 +718,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(SDKROOT)/usr/lib/swift\"",
 					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
-					"\"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)\"",
 					"\"$(inherited)\"",
 				);
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -678,7 +759,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "arm64 ";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -695,7 +776,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(SDKROOT)/usr/lib/swift\"",
 					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
-					"\"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)\"",
 					"\"$(inherited)\"",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;

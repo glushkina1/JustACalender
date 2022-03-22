@@ -4,80 +4,79 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import Icons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { WeekDays } from './WeekDays'
 
-import { toLocaleDate } from '../functions/toLocaleDate'
+import { toLocaleDateHeader } from '../functions/toLocaleDate'
+import {translations} from "../locale/translations";
+import {useTheme} from "react-native-paper";
+import {useStore} from "../store/rootStore";
 
 void Icons.loadFont()
 
 interface CalendarHeaderProps {
-  currentDate: Date
-  setCurrentDate: React.Dispatch<React.SetStateAction<Date>>
+  selectedDate: Date
+  setSelectedDate: React.Dispatch<React.SetStateAction<Date>>
   showJumpToday: boolean
   setShowJumpToday: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const CalendarHeader = ({ currentDate, setCurrentDate, showJumpToday, setShowJumpToday }: CalendarHeaderProps) => {
+const CalendarHeader = ({ selectedDate, setSelectedDate, showJumpToday, setShowJumpToday }: CalendarHeaderProps) => {
+  const store = useStore()
+  const language = store.language
+  const { colors } = useTheme()
+  const styles = makeStyles(colors)
   const now = new Date()
 
   const jumpToToday = () => {
-    setCurrentDate(now)
+    setSelectedDate(now)
   }
 
   useEffect(() => {
     const nowMonth = now.getMonth()
-    const currentMonth = currentDate.getMonth()
+    const currentMonth = selectedDate.getMonth()
     const nowYear = now.getFullYear()
-    const currentYear = currentDate.getFullYear()
+    const currentYear = selectedDate.getFullYear()
 
     if (nowMonth === currentMonth && nowYear === currentYear) {
       setShowJumpToday(false)
     } else {
       setShowJumpToday(true)
     }
-  }, [currentDate])
+  }, [selectedDate])
 
-  const changeDateHandler = (value: string) => {
-    let updatedDate: Date
 
-    switch (value) {
-      case 'showNextMonth':
-        updatedDate = addMonths(new Date(currentDate), 1)
-        break
-      case 'showLastMonth':
-        updatedDate = subMonths(new Date(currentDate), 1)
-        break
-      case 'showNextYear':
-        updatedDate = addYears(new Date(currentDate), 1)
-        break
-      case 'showLastYear':
-        updatedDate = subYears(new Date(currentDate), 1)
-        break
-      default:
-        throw new Error()
-    }
-    setCurrentDate(updatedDate)
+  const onPressNextMonth = () => {
+    setSelectedDate(addMonths(new Date(selectedDate), 1))
+  }
+  const onPressLastMonth = () => {
+    setSelectedDate(subMonths(new Date(selectedDate), 1))
+  }
+  const onPressNextYear = () => {
+    setSelectedDate(addYears(new Date(selectedDate), 1))
+  }
+  const onPressLastYear = () => {
+    setSelectedDate(subYears(new Date(selectedDate), 1))
   }
 
   return (
     <View style={styles.wholeHeaderContainer}>
       <View style={styles.upperHeaderContainer}>
         <View style={styles.twoArrowContainer}>
-          <TouchableOpacity onPress={() => changeDateHandler('showLastYear')}>
+          <TouchableOpacity onPress={() => onPressLastYear()}>
             <Icons name="chevron-double-left" size={30} color="grey" />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => changeDateHandler('showLastMonth')}>
+          <TouchableOpacity onPress={() => onPressLastMonth()}>
             <Icons name="chevron-left" size={30} color="grey" />
           </TouchableOpacity>
         </View>
 
         <View style={styles.dateTitleTextContainer}>
-          <Text style={styles.dateTitleText}>{toLocaleDate(currentDate, 'en-us')}</Text>
+          <Text style={styles.dateTitleText}>{toLocaleDateHeader(selectedDate, language)}</Text>
         </View>
 
         <View style={styles.twoArrowContainer}>
-          <TouchableOpacity onPress={() => changeDateHandler('showNextMonth')}>
+          <TouchableOpacity onPress={() => onPressNextMonth()}>
             <Icons name="chevron-right" size={30} color="grey" />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => changeDateHandler('showNextYear')}>
+          <TouchableOpacity onPress={() => onPressNextYear()}>
             <Icons name="chevron-double-right" size={30} color="grey" />
           </TouchableOpacity>
         </View>
@@ -85,7 +84,7 @@ const CalendarHeader = ({ currentDate, setCurrentDate, showJumpToday, setShowJum
 
       <View style={styles.jumpTextContainer}>
         <TouchableOpacity onPress={() => jumpToToday()}>
-          {showJumpToday && <Text style={styles.jumpText}>Jump to today</Text>}
+          {showJumpToday && <Text style={styles.jumpText}>{translations.jumpName}</Text>}
         </TouchableOpacity>
       </View>
       <View style={styles.weekDaysContainer}>
@@ -95,16 +94,21 @@ const CalendarHeader = ({ currentDate, setCurrentDate, showJumpToday, setShowJum
   )
 }
 
-const styles = StyleSheet.create({
+
+const makeStyles = (colors: any) =>
+    StyleSheet.create({
   wholeHeaderContainer: {
+    flex: 1,
+    width: '100%',
     position: 'absolute',
-    top: 20,
-    left: 10,
-    right: 10,
+    top: 10,
+    height: 80,
+    alignSelf: 'center',
   },
   upperHeaderContainer: {
+    paddingRight: 10,
+    paddingLeft: 10,
     flexDirection: 'row',
-    width: '100%',
     justifyContent: 'space-between',
     alignItems: 'center',
   },
@@ -117,21 +121,22 @@ const styles = StyleSheet.create({
   },
   dateTitleText: {
     fontSize: 22,
-    color: 'black',
+    color: colors.text,
   },
   jumpTextContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    height: 30,
+    height: 20,
+    marginTop:10,
   },
   jumpText: {
     color: 'grey',
-    fontSize: 14,
+    fontSize: 17,
   },
   weekDaysContainer: {
-    marginTop: 10,
-    height: 20,
+    width: '100%',
+    paddingTop: 20,
   },
 })
 export { CalendarHeader }

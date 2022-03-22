@@ -1,18 +1,27 @@
 import React from 'react'
 import { Alert, Dimensions, Modal, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import { lightTheme } from '../styles/globalColors'
 import { fillMarkedDays } from '../functions/fillMarkedDays'
+import { useTheme } from 'react-native-paper'
+import {observer} from "mobx-react-lite";
+import {useStore} from "../store/rootStore";
 
 interface ModalConfirmDayProps {
   modalVisible: boolean
   setModalVisible: React.Dispatch<React.SetStateAction<boolean>>
-  selectedDay: string
+  pressedDay: string
 }
+const ModalConfirmDay = observer(({ modalVisible, setModalVisible, pressedDay }: ModalConfirmDayProps) => {
+  const store = useStore()
+  const { colors } = useTheme()
+  const styles = makeStyles(colors)
 
-const ModalConfirmDay = ({ modalVisible, setModalVisible, selectedDay }: ModalConfirmDayProps) => {
   const handlePeriodStarts = () => {
-    fillMarkedDays(selectedDay)
+    fillMarkedDays(pressedDay, store)
     setModalVisible(false)
+  }
+  const closeModal = () => {
+    Alert.alert('Modal has been closed.')
+    setModalVisible(!modalVisible)
   }
 
   return (
@@ -21,10 +30,7 @@ const ModalConfirmDay = ({ modalVisible, setModalVisible, selectedDay }: ModalCo
         animationType="fade"
         transparent={true}
         visible={modalVisible}
-        onRequestClose={() => {
-          Alert.alert('Modal has been closed.')
-          setModalVisible(!modalVisible)
-        }}
+        onRequestClose={() => closeModal()}
       >
         <View style={styles.modalView}>
           <TouchableOpacity style={styles.button} onPress={() => handlePeriodStarts()}>
@@ -37,9 +43,9 @@ const ModalConfirmDay = ({ modalVisible, setModalVisible, selectedDay }: ModalCo
       </Modal>
     </View>
   )
-}
+})
 
-const styles = StyleSheet.create({
+const makeStyles = (colors: any) => StyleSheet.create({
   centeredView: {
     justifyContent: 'center',
     alignItems: 'center',
@@ -51,7 +57,7 @@ const styles = StyleSheet.create({
     width: 220,
     height: 150,
     marginHorizontal: Dimensions.get('window').width * 0.22,
-    backgroundColor: lightTheme.background,
+    backgroundColor: colors.background,
     borderRadius: 20,
     padding: 20,
     alignItems: 'center',
