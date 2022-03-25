@@ -1,9 +1,10 @@
+import { observer } from 'mobx-react-lite'
 import React from 'react'
 import { Alert, Dimensions, Modal, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import { fillMarkedDays } from '../functions/fillMarkedDays'
 import { useTheme } from 'react-native-paper'
-import {observer} from "mobx-react-lite";
-import {useStore} from "../store/rootStore";
+
+import { fillMarkedDays } from '../functions/fillMarkedDays'
+import { useStore } from '../store/rootStore'
 
 interface ModalConfirmDayProps {
   modalVisible: boolean
@@ -26,12 +27,7 @@ const ModalConfirmDay = observer(({ modalVisible, setModalVisible, pressedDay }:
 
   return (
     <View style={styles.centeredView}>
-      <Modal
-        animationType="fade"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => closeModal()}
-      >
+      <Modal transparent animationType="fade" visible={modalVisible} onRequestClose={() => closeModal()}>
         <View style={styles.modalView}>
           <TouchableOpacity style={styles.button} onPress={() => handlePeriodStarts()}>
             <Text style={styles.textStyle}>Period starts</Text>
@@ -45,42 +41,43 @@ const ModalConfirmDay = observer(({ modalVisible, setModalVisible, pressedDay }:
   )
 })
 
-const makeStyles = (colors: any) => StyleSheet.create({
-  centeredView: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 22,
-  },
-  modalView: {
-    justifyContent:'space-around',
-    marginTop: Dimensions.get('window').height * 0.4,
-    width: 220,
-    height: 150,
-    marginHorizontal: Dimensions.get('window').width * 0.22,
-    backgroundColor: colors.background,
-    borderRadius: 20,
-    padding: 20,
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
+const makeStyles = (colors: any) =>
+  StyleSheet.create({
+    centeredView: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginTop: 22,
     },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
-  },
-  button: {
-    borderRadius: 10,
-    padding: 10,
-    elevation: 2,
-    backgroundColor: 'white',
-  },
-  textStyle: {
-    color: 'black',
-    fontSize: 16,
-    textAlign: 'center',
-  },
-})
+    modalView: {
+      justifyContent: 'space-around',
+      marginTop: Dimensions.get('window').height * 0.4,
+      width: 220,
+      height: 150,
+      marginHorizontal: Dimensions.get('window').width * 0.22,
+      backgroundColor: colors.background,
+      borderRadius: 20,
+      padding: 20,
+      alignItems: 'center',
+      shadowColor: '#000',
+      shadowOffset: {
+        width: 0,
+        height: 2,
+      },
+      shadowOpacity: 0.25,
+      shadowRadius: 4,
+      elevation: 5,
+    },
+    button: {
+      borderRadius: 10,
+      padding: 10,
+      elevation: 2,
+      backgroundColor: 'white',
+    },
+    textStyle: {
+      color: 'black',
+      fontSize: 16,
+      textAlign: 'center',
+    },
+  })
 
 export { ModalConfirmDay }

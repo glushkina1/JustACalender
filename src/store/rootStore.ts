@@ -1,7 +1,8 @@
-import { createContext, useContext } from 'react'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 import { makeAutoObservable } from 'mobx'
 import { AsyncTrunk } from 'mobx-sync'
-import AsyncStorage from '@react-native-async-storage/async-storage'
+import { createContext, useContext } from 'react'
+
 import { DayStyle } from '../styles/markedDayStyle'
 
 const period: Record<string, DayStyle> = {}

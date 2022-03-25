@@ -7,7 +7,7 @@ const toLocaleDateHeader = (date: Date, locales: string) => {
 
 const toLocaleDateToday = (date: Date, locales: string) => {
   return date.toLocaleDateString(locales, {
-    day:'numeric',
+    day: 'numeric',
     month: 'long',
   })
 }

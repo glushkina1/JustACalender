@@ -1,8 +1,10 @@
+import { observer } from 'mobx-react-lite'
 import React from 'react'
 import { Alert, Dimensions, Modal, StyleSheet, View } from 'react-native'
 import { useTheme } from 'react-native-paper'
-import { observer } from 'mobx-react-lite'
+
 import { useStore } from '../store/rootStore'
+
 import { LanguageList } from './LanguageList'
 
 interface ModalLanguagePickerProps {
@@ -24,11 +26,11 @@ const ModalLanguagePicker = observer(({ modalVisible, setModalVisible }: ModalLa
   }
 
   return (
-    <Modal transparent={true}  animationType="fade" visible={modalVisible} onRequestClose={() => closeModal()}>
+    <Modal transparent animationType="fade" visible={modalVisible} onRequestClose={() => closeModal()}>
       <View style={styles.modalView}>
         <View
           style={{
-            flex:1,
+            flex: 1,
             justifyContent: 'center',
             alignSelf: 'center',
             width: Dimensions.get('window').width * 0.85,
@@ -36,7 +38,7 @@ const ModalLanguagePicker = observer(({ modalVisible, setModalVisible }: ModalLa
             marginVertical: Dimensions.get('window').height * 0.2,
           }}
         >
-          <LanguageList store={store}  setModalVisible={setModalVisible}/>
+          <LanguageList setModalVisible={setModalVisible} store={store} />
         </View>
       </View>
     </Modal>

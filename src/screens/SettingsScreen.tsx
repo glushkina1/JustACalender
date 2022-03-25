@@ -1,15 +1,16 @@
+import { observer } from 'mobx-react-lite'
 import React, { useContext, useState } from 'react'
 import { Dimensions, StyleSheet, Switch, Text, TouchableOpacity, View } from 'react-native'
-import Icons from 'react-native-vector-icons/MaterialCommunityIcons'
+import { useTheme } from 'react-native-paper'
 import Fontisto from 'react-native-vector-icons/Fontisto'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import Icons from 'react-native-vector-icons/MaterialCommunityIcons'
+
 import { EditProfileButton } from '../components/EditProfileButton'
-import { useTheme } from 'react-native-paper'
-import { AdditionalColors } from '../styles/globalColors'
-import { observer } from 'mobx-react-lite'
-import { useStore } from '../store/rootStore'
 import { ModalLanguagePicker } from '../components/ModalLanguagePicker'
 import { LocalizationContext } from '../locale/LocalizationContext'
+import { useStore } from '../store/rootStore'
+import { AdditionalColors } from '../styles/globalColors'
 
 void Icons.loadFont()
 void Fontisto.loadFont()
@@ -40,7 +41,7 @@ const SettingsScreen = observer(({}) => {
       <View style={[styles.generalStyle, styles.block]}>
         <View style={styles.row}>
           <View style={styles.iconPosition}>
-            <Icons name="face-woman" size={33} color={colors.greyBlack} />
+            <Icons color={colors.greyBlack} name="face-woman" size={33} />
           </View>
           <View style={styles.mainTextPosition}>
             <Text style={styles.text}>ANNA</Text>
@@ -52,7 +53,7 @@ const SettingsScreen = observer(({}) => {
 
         <View style={styles.row}>
           <View style={styles.iconPosition}>
-            <Fontisto name="blood-drop" size={30} color={AdditionalColors.red} style={{ paddingLeft: 5 }} />
+            <Fontisto color={AdditionalColors.red} name="blood-drop" size={30} style={{ paddingLeft: 5 }} />
           </View>
           <View style={styles.mainTextPosition}>
             <Text style={styles.text}>{translations.periodLength + ' ' + store.periodLength}</Text>
@@ -64,7 +65,7 @@ const SettingsScreen = observer(({}) => {
 
         <View style={styles.row}>
           <View style={styles.iconPosition}>
-            <Icons name="chart-donut" size={33} color={AdditionalColors.lightBlue} />
+            <Icons color={AdditionalColors.lightBlue} name="chart-donut" size={33} />
           </View>
           <View style={styles.mainTextPosition}>
             <Text style={styles.text}>{translations.cycleLength + ' ' + store.cycleLength}</Text>
@@ -82,7 +83,7 @@ const SettingsScreen = observer(({}) => {
       <View style={[styles.generalStyle, styles.block]}>
         <View style={styles.row}>
           <View style={styles.iconPosition}>
-            <Icons name="bell-ring-outline" size={33} color={AdditionalColors.grey} />
+            <Icons color={AdditionalColors.grey} name="bell-ring-outline" size={33} />
           </View>
           <View style={styles.mainTextPosition}>
             <Text style={styles.text}>{translations.remainders}</Text>
@@ -94,14 +95,14 @@ const SettingsScreen = observer(({}) => {
 
         <View style={[styles.row, styles.zIndex]}>
           <View style={styles.iconPosition}>
-            <Ionicons name="language" size={33} color={AdditionalColors.darkBlue} />
+            <Ionicons color={AdditionalColors.darkBlue} name="language" size={33} />
           </View>
           <View style={styles.mainTextPosition}>
             <Text style={styles.text}>{translations.language + ': ' + store.language}</Text>
           </View>
           <View style={styles.editButtonPosition}>
             <TouchableOpacity onPress={() => handleLanguagePicker()}>
-              <Icons name="pencil" size={25} color="grey" />
+              <Icons color="grey" name="pencil" size={25} />
             </TouchableOpacity>
           </View>
         </View>
@@ -109,9 +110,9 @@ const SettingsScreen = observer(({}) => {
         <View style={styles.row}>
           <View style={styles.iconPosition}>
             {store.isDarkMode ? (
-              <Ionicons name="moon" size={33} color={AdditionalColors.darkBlue} />
+              <Ionicons color={AdditionalColors.darkBlue} name="moon" size={33} />
             ) : (
-              <Fontisto name="day-sunny" size={35} color="yellow" />
+              <Fontisto color="yellow" name="day-sunny" size={35} />
             )}
           </View>
           <View style={styles.mainTextPosition}>
@@ -119,11 +120,11 @@ const SettingsScreen = observer(({}) => {
           </View>
           <View style={styles.editButtonPosition}>
             <Switch
-              trackColor={{ false: 'pink', true: 'grey' }}
-              thumbColor={'white'}
               ios_backgroundColor="pink"
-              onValueChange={toggleSwitch}
+              thumbColor="white"
+              trackColor={{ false: 'pink', true: 'grey' }}
               value={store.isDarkMode}
+              onValueChange={toggleSwitch}
             />
           </View>
         </View>
@@ -133,7 +134,7 @@ const SettingsScreen = observer(({}) => {
         <TouchableOpacity onPress={() => null}>
           <View style={[styles.row, styles.widthFeedback]}>
             <Text style={styles.text}>{translations.giveFeedback}</Text>
-            <Icons name="telegram" size={35} color={AdditionalColors.azure} style={styles.telegramIcon} />
+            <Icons color={AdditionalColors.azure} name="telegram" size={35} style={styles.telegramIcon} />
           </View>
         </TouchableOpacity>
       </View>

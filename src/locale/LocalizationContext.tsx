@@ -1,6 +1,8 @@
 import React, { createContext, useState } from 'react'
-import { DEFAULT_LANGUAGE, translations } from './translations'
+
 import { useStore } from '../store/rootStore'
+
+import { DEFAULT_LANGUAGE, translations } from './translations'
 
 export const LocalizationContext = createContext({
   translations,

@@ -1,13 +1,14 @@
+import { NavigationContainer } from '@react-navigation/native'
+import { observer } from 'mobx-react-lite'
 import React, { useEffect, useState } from 'react'
 import { ActivityIndicator, StatusBar, StyleSheet, View } from 'react-native'
-import { StoreProvider, trunk, useStore } from './store/rootStore'
 import { Provider as PaperProvider } from 'react-native-paper'
-import { NavigationContainer } from '@react-navigation/native'
+
 import Tabs from './components/Tabs'
-import { darkTheme, lightTheme } from './styles/globalColors'
-import { observer } from 'mobx-react-lite'
 import { LocalizationProvider } from './locale/LocalizationContext'
-import {translations} from "./locale/translations";
+import { translations } from './locale/translations'
+import { StoreProvider, trunk, useStore } from './store/rootStore'
+import { darkTheme, lightTheme } from './styles/globalColors'
 
 const App = observer(({}) => {
   const store = useStore()
@@ -32,16 +33,16 @@ const App = observer(({}) => {
   } else {
     return (
       <NavigationContainer>
-          <StoreProvider value={store}>
-            <LocalizationProvider>
-              <PaperProvider theme={store.isDarkMode ? darkTheme : lightTheme}>
-                <View style={styles.container}>
-                  <StatusBar animated={true} barStyle={store.isDarkMode ? 'light-content' : 'dark-content'} />
-                  <Tabs />
-                </View>
-              </PaperProvider>
-            </LocalizationProvider>
-          </StoreProvider>
+        <StoreProvider value={store}>
+          <LocalizationProvider>
+            <PaperProvider theme={store.isDarkMode ? darkTheme : lightTheme}>
+              <View style={styles.container}>
+                <StatusBar animated barStyle={store.isDarkMode ? 'light-content' : 'dark-content'} />
+                <Tabs />
+              </View>
+            </PaperProvider>
+          </LocalizationProvider>
+        </StoreProvider>
       </NavigationContainer>
     )
   }

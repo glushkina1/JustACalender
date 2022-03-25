@@ -1,6 +1,7 @@
-import { Dimensions, FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useContext } from 'react'
+import { Dimensions, FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { useTheme } from 'react-native-paper'
+
 import { languageList } from '../constants'
 import { LocalizationContext } from '../locale/LocalizationContext'
 

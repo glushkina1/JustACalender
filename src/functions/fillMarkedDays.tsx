@@ -1,7 +1,7 @@
 import { addDays, format } from 'date-fns'
-import { useStore } from '../store/rootStore'
-import { DatePatter, DayInMilliSecs } from '../constants'
 
+import { DatePatter, DayInMilliSecs } from '../constants'
+import { useStore } from '../store/rootStore'
 import { DayStyle, firstDayStyle, lastDayStyle, remainingDayStyle } from '../styles/markedDayStyle'
 
 interface StoreProps {
@@ -9,7 +9,7 @@ interface StoreProps {
 }
 
 const fillMarkedDays = (selectedDay: string, store: StoreProps) => {
-  let { firstDay, lastDay }: { firstDay: string, lastDay: string } = getLastFirstDay(selectedDay)
+  const { firstDay, lastDay }: { firstDay: string; lastDay: string } = getLastFirstDay(selectedDay)
   const period: string[] = getDatesBetween(firstDay, lastDay)
 
   if (period && firstDay && lastDay) {

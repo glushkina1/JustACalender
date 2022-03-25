@@ -1,6 +1,6 @@
+import React from 'react'
 import { TouchableOpacity } from 'react-native'
 import Icons from 'react-native-vector-icons/MaterialCommunityIcons'
-import React from 'react'
 
 // interface Props {
 //     modalVisible: boolean
@@ -9,15 +9,9 @@ import React from 'react'
 // }
 
 export const EditProfileButton = () => {
-
-
-
-
   return (
     <TouchableOpacity onPress={() => null}>
-      <Icons name="pencil" size={25} color="grey" />
+      <Icons color="grey" name="pencil" size={25} />
     </TouchableOpacity>
   )
 }
-
-

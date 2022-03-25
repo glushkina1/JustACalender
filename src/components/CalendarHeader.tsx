@@ -1,13 +1,14 @@
 import { addMonths, addYears, subMonths, subYears } from 'date-fns'
 import React, { useEffect } from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { useTheme } from 'react-native-paper'
 import Icons from 'react-native-vector-icons/MaterialCommunityIcons'
-import { WeekDays } from './WeekDays'
 
 import { toLocaleDateHeader } from '../functions/toLocaleDate'
-import {translations} from "../locale/translations";
-import {useTheme} from "react-native-paper";
-import {useStore} from "../store/rootStore";
+import { translations } from '../locale/translations'
+import { useStore } from '../store/rootStore'
+
+import { WeekDays } from './WeekDays'
 
 void Icons.loadFont()
 
@@ -42,7 +43,6 @@ const CalendarHeader = ({ selectedDate, setSelectedDate, showJumpToday, setShowJ
     }
   }, [selectedDate])
 
-
   const onPressNextMonth = () => {
     setSelectedDate(addMonths(new Date(selectedDate), 1))
   }
@@ -61,10 +61,10 @@ const CalendarHeader = ({ selectedDate, setSelectedDate, showJumpToday, setShowJ
       <View style={styles.upperHeaderContainer}>
         <View style={styles.twoArrowContainer}>
           <TouchableOpacity onPress={() => onPressLastYear()}>
-            <Icons name="chevron-double-left" size={30} color="grey" />
+            <Icons color="grey" name="chevron-double-left" size={30} />
           </TouchableOpacity>
           <TouchableOpacity onPress={() => onPressLastMonth()}>
-            <Icons name="chevron-left" size={30} color="grey" />
+            <Icons color="grey" name="chevron-left" size={30} />
           </TouchableOpacity>
         </View>
 
@@ -74,10 +74,10 @@ const CalendarHeader = ({ selectedDate, setSelectedDate, showJumpToday, setShowJ
 
         <View style={styles.twoArrowContainer}>
           <TouchableOpacity onPress={() => onPressNextMonth()}>
-            <Icons name="chevron-right" size={30} color="grey" />
+            <Icons color="grey" name="chevron-right" size={30} />
           </TouchableOpacity>
           <TouchableOpacity onPress={() => onPressNextYear()}>
-            <Icons name="chevron-double-right" size={30} color="grey" />
+            <Icons color="grey" name="chevron-double-right" size={30} />
           </TouchableOpacity>
         </View>
       </View>
@@ -94,49 +94,48 @@ const CalendarHeader = ({ selectedDate, setSelectedDate, showJumpToday, setShowJ
   )
 }
 
-
 const makeStyles = (colors: any) =>
-    StyleSheet.create({
-  wholeHeaderContainer: {
-    flex: 1,
-    width: '100%',
-    position: 'absolute',
-    top: 10,
-    height: 80,
-    alignSelf: 'center',
-  },
-  upperHeaderContainer: {
-    paddingRight: 10,
-    paddingLeft: 10,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  twoArrowContainer: {
-    flexDirection: 'row',
-  },
-  dateTitleTextContainer: {
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  dateTitleText: {
-    fontSize: 22,
-    color: colors.text,
-  },
-  jumpTextContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: 20,
-    marginTop:10,
-  },
-  jumpText: {
-    color: 'grey',
-    fontSize: 17,
-  },
-  weekDaysContainer: {
-    width: '100%',
-    paddingTop: 20,
-  },
-})
+  StyleSheet.create({
+    wholeHeaderContainer: {
+      flex: 1,
+      width: '100%',
+      position: 'absolute',
+      top: 10,
+      height: 80,
+      alignSelf: 'center',
+    },
+    upperHeaderContainer: {
+      paddingRight: 10,
+      paddingLeft: 10,
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+    },
+    twoArrowContainer: {
+      flexDirection: 'row',
+    },
+    dateTitleTextContainer: {
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    dateTitleText: {
+      fontSize: 22,
+      color: colors.text,
+    },
+    jumpTextContainer: {
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: 20,
+      marginTop: 10,
+    },
+    jumpText: {
+      color: 'grey',
+      fontSize: 17,
+    },
+    weekDaysContainer: {
+      width: '100%',
+      paddingTop: 20,
+    },
+  })
 export { CalendarHeader }

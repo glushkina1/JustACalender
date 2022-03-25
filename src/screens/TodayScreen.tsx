@@ -1,9 +1,10 @@
 import { observer } from 'mobx-react-lite'
-import React, {useContext} from 'react'
+import React, { useContext } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { useTheme } from 'react-native-paper'
+
 import { toLocaleDateToday } from '../functions/toLocaleDate'
-import {LocalizationContext} from "../locale/LocalizationContext";
+import { LocalizationContext } from '../locale/LocalizationContext'
 
 const TodayScreen = observer(({}) => {
   const { colors } = useTheme()
@@ -11,7 +12,7 @@ const TodayScreen = observer(({}) => {
 
   const now = new Date()
   const todayDate = toLocaleDateToday(now, 'en')
-  const {translations} = useContext(LocalizationContext);
+  const { translations } = useContext(LocalizationContext)
 
   return (
     <View style={styles.container}>

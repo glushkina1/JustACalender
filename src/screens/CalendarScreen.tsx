@@ -1,16 +1,17 @@
-import React, {useContext, useState} from 'react'
+import { format } from 'date-fns'
+import { observer } from 'mobx-react-lite'
+import React, { useContext, useState } from 'react'
 import { Dimensions, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { Calendar } from 'react-native-calendars'
-import { CalendarHeader } from '../components/CalendarHeader'
-import { DatePatter } from '../constants'
-import { format } from 'date-fns'
 import { DateData } from 'react-native-calendars/src/types'
-import { ModalConfirmDay } from '../components/ModalConfirmDay'
-import { markedDates } from '../functions/fillMarkedDays'
 import { useTheme } from 'react-native-paper'
-import { observer } from 'mobx-react-lite'
+
+import { CalendarHeader } from '../components/CalendarHeader'
+import { ModalConfirmDay } from '../components/ModalConfirmDay'
+import { DatePatter } from '../constants'
+import { markedDates } from '../functions/fillMarkedDays'
+import { LocalizationContext } from '../locale/LocalizationContext'
 import { useStore } from '../store/rootStore'
-import {LocalizationContext} from "../locale/LocalizationContext";
 
 const CalendarScreen = observer(({}) => {
   const store = useStore()
@@ -18,12 +19,12 @@ const CalendarScreen = observer(({}) => {
   const [selectedDate, setSelectedDate] = useState<Date>(new Date())
   const [showJumpToday, setShowJumpToday] = useState<boolean>(false)
   const [pressedDay, setPressedDay] = useState<string>('')
-  const {translations} = useContext(LocalizationContext);
+  const { translations } = useContext(LocalizationContext)
 
   const { colors } = useTheme()
   const styles = makeStyles(colors)
 
-  let dateFormatter = (selectedDate: Date) => {
+  const dateFormatter = (selectedDate: Date) => {
     return format(selectedDate, DatePatter.YEAR_MONTH)
   }
 
@@ -41,21 +42,21 @@ const CalendarScreen = observer(({}) => {
       <View style={styles.calendarContainer}>
         <Calendar
           current={dateFormatter(selectedDate)}
-          key={dateFormatter(selectedDate)}
           customHeader={CalendarHeaderHandler}
-          style={styles.calendar}
           firstDay={1}
-          onDayPress={day => {
-            handleDayPress(day)
-          }}
+          key={dateFormatter(selectedDate)}
+          markedDates={markedDates()}
+          markingType="period"
+          style={styles.calendar}
           theme={{
             todayTextColor: 'black',
             dayTextColor: 'white',
             textDisabledColor: 'grey',
             calendarBackground: colors.calendar,
           }}
-          markingType={'period'}
-          markedDates={markedDates()}
+          onDayPress={day => {
+            handleDayPress(day)
+          }}
         />
       </View>
       <View style={styles.infoContainer}>
@@ -67,7 +68,7 @@ const CalendarScreen = observer(({}) => {
         </View>
       </View>
       <View>
-        <ModalConfirmDay modalVisible={modalVisible} setModalVisible={setModalVisible} pressedDay={pressedDay} />
+        <ModalConfirmDay modalVisible={modalVisible} pressedDay={pressedDay} setModalVisible={setModalVisible} />
       </View>
     </SafeAreaView>
   )

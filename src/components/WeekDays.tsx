@@ -1,14 +1,23 @@
+import React, { useContext } from 'react'
 import { Dimensions, StyleSheet, Text, View } from 'react-native'
-import React, {useContext} from 'react'
 import { useTheme } from 'react-native-paper'
-import {LocalizationContext} from "../locale/LocalizationContext";
+
+import { LocalizationContext } from '../locale/LocalizationContext'
 
 const WeekDays = () => {
   const { colors } = useTheme()
   const styles = makeStyles(colors)
-  const {translations} = useContext(LocalizationContext);
+  const { translations } = useContext(LocalizationContext)
 
-  const weekDaysArray = [translations.mon, translations.tue, translations.wed, translations.thu, translations.fri, translations.sat, translations.sun]
+  const weekDaysArray = [
+    translations.mon,
+    translations.tue,
+    translations.wed,
+    translations.thu,
+    translations.fri,
+    translations.sat,
+    translations.sun,
+  ]
   const weekDays = []
 
   for (let i = 0; i < weekDaysArray.length; i++) {
