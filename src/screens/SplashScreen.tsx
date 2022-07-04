@@ -1,0 +1,54 @@
+import React from "react";
+import {StyleSheet, Text, View} from "react-native";
+import FlowerLogo from "../components/FlowerLogo"
+import {observer} from 'mobx-react-lite'
+import {useTheme} from "react-native-paper";
+
+
+const SplashScreen = observer(({}) => {
+    const {colors} = useTheme()
+    const styles = makeStyles(colors)
+
+    return (
+        <View style={styles.container}>
+            <View style={styles.titleContainer}>
+                <Text style={styles.textTitle}>Just a Calendar</Text>
+            </View>
+            <FlowerLogo/>
+            <View style={styles.loadingContainer}>
+                <Text style={styles.textLoading}>Loading...</Text>
+            </View>
+        </View>
+
+    );
+});
+
+const makeStyles = (colors: any) =>
+    StyleSheet.create({
+        container: {
+            flex: 1,
+            backgroundColor: colors.background,
+        },
+        titleContainer: {
+            flex:1,
+            alignItems: 'center',
+            justifyContent: 'flex-end',
+        },
+        loadingContainer: {
+            flex:1,
+            paddingTop:20,
+            alignItems: 'center',
+            justifyContent: 'flex-start',
+        },
+        textTitle: {
+            fontFamily: 'AmaticSC-Regular',
+            fontSize: 45,
+        },
+        textLoading: {
+            fontFamily: 'AmaticSC-Regular',
+            fontSize: 30,
+        },
+
+    })
+
+export default SplashScreen;

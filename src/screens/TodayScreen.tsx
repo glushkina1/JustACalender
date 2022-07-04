@@ -27,6 +27,7 @@ const TodayScreen = observer(({}) => {
         <Text style={styles.text}>12 Days left{'\n'}</Text>
         <Text style={[styles.text, styles.textOvulation]}>Ovulation: 17 days left{'\n'}</Text>
       </View>
+
     </View>
   )
 })

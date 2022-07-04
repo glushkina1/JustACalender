@@ -4,7 +4,8 @@ import { Dimensions, StyleSheet, Switch, Text, TouchableOpacity, View } from 're
 import { useTheme } from 'react-native-paper'
 import Fontisto from 'react-native-vector-icons/Fontisto'
 import Ionicons from 'react-native-vector-icons/Ionicons'
-import Icons from 'react-native-vector-icons/MaterialCommunityIcons'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import EvilIcons from 'react-native-vector-icons/EvilIcons'
 
 import { EditProfileButton } from '../components/EditProfileButton'
 import { ModalLanguagePicker } from '../components/ModalLanguagePicker'
@@ -12,9 +13,10 @@ import { LocalizationContext } from '../locale/LocalizationContext'
 import { useStore } from '../store/rootStore'
 import { AdditionalColors } from '../styles/globalColors'
 
-void Icons.loadFont()
+void MaterialCommunityIcons.loadFont()
 void Fontisto.loadFont()
 void Ionicons.loadFont()
+void EvilIcons.loadFont()
 
 const SettingsScreen = observer(({}) => {
   const store = useStore()
@@ -41,7 +43,7 @@ const SettingsScreen = observer(({}) => {
       <View style={[styles.generalStyle, styles.block]}>
         <View style={styles.row}>
           <View style={styles.iconPosition}>
-            <Icons color={colors.greyBlack} name="face-woman" size={33} />
+            <MaterialCommunityIcons color={colors.greyBlack} name="face-woman" size={33} />
           </View>
           <View style={styles.mainTextPosition}>
             <Text style={styles.text}>ANNA</Text>
@@ -65,7 +67,7 @@ const SettingsScreen = observer(({}) => {
 
         <View style={styles.row}>
           <View style={styles.iconPosition}>
-            <Icons color={AdditionalColors.lightBlue} name="chart-donut" size={33} />
+            <MaterialCommunityIcons color={AdditionalColors.lightBlue} name="chart-donut" size={33} />
           </View>
           <View style={styles.mainTextPosition}>
             <Text style={styles.text}>{translations.cycleLength + ' ' + store.cycleLength}</Text>
@@ -83,7 +85,7 @@ const SettingsScreen = observer(({}) => {
       <View style={[styles.generalStyle, styles.block]}>
         <View style={styles.row}>
           <View style={styles.iconPosition}>
-            <Icons color={AdditionalColors.grey} name="bell-ring-outline" size={33} />
+            <MaterialCommunityIcons color={AdditionalColors.grey} name="bell-ring-outline" size={33} />
           </View>
           <View style={styles.mainTextPosition}>
             <Text style={styles.text}>{translations.remainders}</Text>
@@ -102,7 +104,7 @@ const SettingsScreen = observer(({}) => {
           </View>
           <View style={styles.editButtonPosition}>
             <TouchableOpacity onPress={() => handleLanguagePicker()}>
-              <Icons color="grey" name="pencil" size={25} />
+              <MaterialCommunityIcons color="grey" name="pencil" size={25} />
             </TouchableOpacity>
           </View>
         </View>
@@ -134,7 +136,7 @@ const SettingsScreen = observer(({}) => {
         <TouchableOpacity onPress={() => null}>
           <View style={[styles.row, styles.widthFeedback]}>
             <Text style={styles.text}>{translations.giveFeedback}</Text>
-            <Icons color={AdditionalColors.azure} name="telegram" size={35} style={styles.telegramIcon} />
+            <EvilIcons color={AdditionalColors.azure} name="sc-telegram" size={35} style={styles.telegramIcon} />
           </View>
         </TouchableOpacity>
       </View>
