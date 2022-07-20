@@ -1,83 +1,91 @@
-import { observer } from 'mobx-react-lite'
-import React from 'react'
-import { Alert, Dimensions, Modal, StyleSheet, View } from 'react-native'
-import { useTheme } from 'react-native-paper'
+import {observer} from 'mobx-react-lite'
+import React, {useContext} from 'react'
+import {Alert, Dimensions, Modal, StyleSheet, Text, TouchableOpacity, View} from 'react-native'
+import {useTheme} from 'react-native-paper'
+import {LocalizationContext} from '../locale/LocalizationContext'
 
-import { useStore } from '../store/rootStore'
+import {useStore} from '../store/rootStore'
 
-import { LanguageList } from './LanguageList'
+import {LanguageList} from './LanguageList'
 
 interface ModalLanguagePickerProps {
-  modalVisible: boolean
-  setModalVisible: React.Dispatch<React.SetStateAction<boolean>>
+    modalVisible: boolean
+    setModalVisible: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const ModalLanguagePicker = observer(({ modalVisible, setModalVisible }: ModalLanguagePickerProps) => {
-  const store = useStore()
-  const { colors } = useTheme()
-  const styles = makeStyles(colors)
+const ModalLanguagePicker = observer(({modalVisible, setModalVisible}: ModalLanguagePickerProps) => {
+    const store = useStore()
+    const {translations} = useContext(LocalizationContext)
+    const {colors} = useTheme()
+    const styles = makeStyles(colors)
 
-  // const handleLanguage = () => {
-  //   setModalVisible(false)
-  // }
-  const closeModal = () => {
-    Alert.alert('Modal has been closed.')
-    setModalVisible(!modalVisible)
-  }
+    const closeModal = () => {
+        Alert.alert('Changes will not be applied')
+        setModalVisible(!modalVisible)
+    }
 
-  return (
-    <Modal transparent animationType="fade" visible={modalVisible} onRequestClose={() => closeModal()}>
-      <View style={styles.modalView}>
-        <View
-          style={{
-            flex: 1,
-            justifyContent: 'center',
-            alignSelf: 'center',
-            width: Dimensions.get('window').width * 0.85,
-            marginHorizontal: Dimensions.get('window').width * 0.1,
-            marginVertical: Dimensions.get('window').height * 0.2,
-          }}
-        >
-          <LanguageList setModalVisible={setModalVisible} store={store} />
-        </View>
-      </View>
-    </Modal>
-  )
+    return (
+        <Modal transparent animationType="fade" visible={modalVisible} onRequestClose={() => closeModal()}>
+            <View style={styles.modalView}>
+                <View style={styles.titleContainer}>
+                    <Text style={styles.text}>{translations.chooseLanguage}</Text>
+                </View>
+                <View style={styles.languageListContainer}>
+                    <LanguageList setModalVisible={setModalVisible} store={store}/>
+                </View>
+                <View style={styles.buttonContainer}>
+                    <TouchableOpacity style={styles.button} onPress={() => closeModal()}>
+                        <Text style={styles.text}>{translations.cancel}</Text>
+                    </TouchableOpacity>
+                </View>
+
+            </View>
+        </Modal>
+    )
 })
 
 const makeStyles = (colors: any) =>
-  StyleSheet.create({
-    modalView: {
-      flex: 1,
-      justifyContent: 'center',
-      width: Dimensions.get('window').width,
-      backgroundColor: colors.tab,
-      borderRadius: 20,
-      // padding: 20,
-      alignSelf: 'center',
-      shadowColor: '#000',
-      shadowOffset: {
-        width: 0,
-        height: 2,
-      },
-      shadowOpacity: 0.25,
-      shadowRadius: 4,
-      elevation: 5,
-    },
-    button: {
-      borderRadius: 10,
-      padding: 10,
-      elevation: 2,
-      backgroundColor: 'white',
-      // borderColor: 'blue',
-      // borderWidth: 1,
-      justifyContent: 'center',
-    },
-    textStyle: {
-      color: 'black',
-      fontSize: 16,
-      textAlign: 'center',
-    },
-  })
+    StyleSheet.create({
+        modalView: {
+            flex: 1,
+            justifyContent: 'center',
+            backgroundColor: colors.tab,
+            borderRadius: 20,
+            shadowColor: '#000',
+            shadowOffset: {
+                width: 0,
+                height: 2,
+            },
+            shadowOpacity: 0.25,
+            shadowRadius: 4,
+            elevation: 5,
+        },
+        text: {
+            color: colors.text,
+            textAlign: 'center',
+            fontSize: 22,
+        },
+        buttonContainer: {
+            flex: 1,
+        },
+        button: {
+            borderRadius: 10,
+            padding: 10,
+            elevation: 2,
+            backgroundColor: colors.greyBlack,
+            alignSelf: 'center',
+            width: Dimensions.get('window').width * 0.4,
+            justifyContent: 'center',
+        },
+        titleContainer: {
+            marginTop: 40,
+            flex: 2,
+            alignContent: 'center',
+            justifyContent: 'center',
+        },
+        languageListContainer: {
+            flex: 4,
+        },
+    })
 
-export { ModalLanguagePicker }
+export {ModalLanguagePicker}

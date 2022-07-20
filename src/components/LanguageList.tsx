@@ -1,78 +1,63 @@
-import React, { useContext } from 'react'
-import { Dimensions, FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import { useTheme } from 'react-native-paper'
+import React, {useContext} from 'react'
+import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native'
+import {useTheme} from 'react-native-paper'
+import { IRootStore } from 'src/store/rootStore'
+import AntDesign from 'react-native-vector-icons/AntDesign'
 
-import { languageList } from '../constants'
-import { LocalizationContext } from '../locale/LocalizationContext'
+import {languageList} from '../constants'
+import {LocalizationContext} from '../locale/LocalizationContext'
+import { AdditionalColors } from '../styles/globalColors'
+
+void AntDesign.loadFont()
 
 interface LanguageListProps {
-  setModalVisible: React.Dispatch<React.SetStateAction<boolean>>
-  store: any
+    setModalVisible: React.Dispatch<React.SetStateAction<boolean>>
+    store: IRootStore
 }
 
-const LanguageList = ({ setModalVisible }: LanguageListProps) => {
-  const { colors } = useTheme()
-  const styles = makeStyles(colors)
-  const { translations, setAppLanguage } = useContext(LocalizationContext)
+const LanguageList = ({setModalVisible, store}: LanguageListProps) => {
+    const {colors} = useTheme()
+    const styles = makeStyles(colors)
+    const {setAppLanguage} = useContext(LocalizationContext)
 
-  const handleLanguage = (lang: string) => {
-    setAppLanguage(lang)
-    closeModal()
-  }
+    const handleLanguage = (lang: string) => {
+        setAppLanguage(lang)
+        setModalVisible(false)
+    }
 
-  const closeModal = () => {
-    setModalVisible(false)
-  }
 
-  return (
-    <View style={styles.container}>
-      <Text style={styles.text}>{translations.chooseLanguage}</Text>
-      <FlatList
-        data={Object.keys(languageList)}
-        renderItem={({ item }) => (
-          <TouchableOpacity key={item} onPress={() => handleLanguage(item)}>
-            <View>
-              <Text style={{ color: colors.text }}>{languageList[item]}</Text>
-            </View>
-          </TouchableOpacity>
-        )}
-      />
-      <TouchableOpacity style={styles.button} onPress={() => closeModal()}>
-        <Text style={styles.text}>{translations.cancel}</Text>
-      </TouchableOpacity>
-    </View>
-  )
+    return (
+            <FlatList
+                data={Object.keys(languageList)}
+                renderItem={({item}) => (
+                    <TouchableOpacity key={item} onPress={() => handleLanguage(item)}>
+                        <View style={styles.languageItem}>
+                            <Text style={styles.text}>{languageList[item]}</Text>
+                            <Text style={styles.text}>{(item === store.language) ?
+                                <AntDesign color={AdditionalColors.blue} name="check" size={35}
+                                /> : ''}
+                            </Text>
+                        </View>
+                    </TouchableOpacity>
+                )}
+            />
+    )
 }
 
 const makeStyles = (colors: any) =>
-  StyleSheet.create({
-    container: {
-      flex: 1,
-      marginVertical: 30,
-      justifyContent: 'space-around',
-      alignItems: 'center',
-      borderWidth: 1,
-      borderColor: 'red',
-    },
-    languageList: {
-      width: Dimensions.get('window').width * 0.7,
-      borderWidth: 1,
-      borderColor: 'green',
-    },
-    text: {
-      color: colors.text,
-      textAlign: 'center',
-      fontSize: 16,
-    },
-    button: {
-      borderRadius: 10,
-      padding: 10,
-      elevation: 2,
-      backgroundColor: colors.greyBlack,
-      width: Dimensions.get('window').width * 0.4,
-      // borderColor: 'blue',
-      // borderWidth: 1,
-      justifyContent: 'center',
-    },
-  })
-export { LanguageList }
+    StyleSheet.create({
+        text: {
+            color: colors.text,
+            textAlign: 'center',
+            fontSize: 22,
+        },
+        languageItem: {
+            justifyContent:'space-between',
+            flexGrow:1,
+            flexDirection:'row',
+            marginTop:10,
+            marginHorizontal:70,
+            alignItems:'baseline',
+        },
+    })
+export {LanguageList}

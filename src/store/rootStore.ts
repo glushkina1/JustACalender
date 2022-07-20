@@ -1,15 +1,25 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import { makeAutoObservable } from 'mobx'
-import { AsyncTrunk } from 'mobx-sync'
-import { createContext, useContext } from 'react'
+import {makeAutoObservable} from 'mobx'
+import {AsyncTrunk} from 'mobx-sync'
+import {createContext, useContext} from 'react'
 
-import { DayStyle } from '../styles/markedDayStyle'
+import {DayStyle} from '../styles/markedDayStyle'
 
-const period: Record<string, DayStyle> = {}
+
+export interface IRootStore {
+  isDarkMode: boolean,
+  periods: Record<string, DayStyle>,
+  language: string,
+  periodLength: number,
+  cycleLength: number,
+  changeLanguage: (language: string) => void,
+  resetEverything: () => void,
+  toggleDarkMode: () => void,
+}
 
 export const rootStore = makeAutoObservable({
   isDarkMode: false,
-  periods: period,
+  periods: {},
   language: 'en',
   periodLength: 5,
   cycleLength: 26,
@@ -22,7 +32,7 @@ export const rootStore = makeAutoObservable({
   toggleDarkMode() {
     this.isDarkMode = !this.isDarkMode
   },
-})
+} as IRootStore)
 
 export const trunk = new AsyncTrunk(rootStore, {
   storage: AsyncStorage,

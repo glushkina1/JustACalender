@@ -7,6 +7,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import EvilIcons from 'react-native-vector-icons/EvilIcons'
 
+
 import { EditProfileButton } from '../components/EditProfileButton'
 import { ModalLanguagePicker } from '../components/ModalLanguagePicker'
 import { LocalizationContext } from '../locale/LocalizationContext'
@@ -107,6 +108,7 @@ const SettingsScreen = observer(({}) => {
               <MaterialCommunityIcons color="grey" name="pencil" size={25} />
             </TouchableOpacity>
           </View>
+            <ModalLanguagePicker modalVisible={modalVisible} setModalVisible={setModalVisible} />
         </View>
 
         <View style={styles.row}>
@@ -140,7 +142,6 @@ const SettingsScreen = observer(({}) => {
           </View>
         </TouchableOpacity>
       </View>
-      <ModalLanguagePicker modalVisible={modalVisible} setModalVisible={setModalVisible} />
     </View>
   )
 })
