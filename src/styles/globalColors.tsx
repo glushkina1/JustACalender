@@ -10,6 +10,8 @@ declare global {
       tabsActive: string,
       tabsInactive: string,
       calendar: string,
+      dayColor: string,
+      todayColor: string,
     }
   }
 }
@@ -25,6 +27,8 @@ export const lightTheme: ReactNativePaper.Theme = {
     tabsActive: '#f06292',
     tabsInactive: '#8a898a',
     calendar: 'white',
+    dayColor: 'black',
+    todayColor: 'pink',
   },
 }
 
@@ -40,6 +44,8 @@ export const darkTheme: ReactNativePaper.Theme = {
     tabsActive: 'white',
     tabsInactive: '#7b7b7b',
     calendar:'#666666',
+    dayColor: 'white',
+    todayColor: 'black',
   },
 }
 

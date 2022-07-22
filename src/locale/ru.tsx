@@ -1,6 +1,6 @@
 
 export default {
-    jumpName: 'Выбрать сегодняшний месяц',
+    jumpName: 'Выбрать текущий месяц',
     today: 'Сегодня',
     todayIs: 'Сегодня',
     calendar: 'Календарь',

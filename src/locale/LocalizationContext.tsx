@@ -13,9 +13,6 @@ export const LocalizationProvider = ({children}: any) => {
     const store = useStore()
     const [appLanguage, setAppLanguage] = useState(DEFAULT_LANGUAGE)
 
-    console.log('appLanguage',appLanguage)
-
-
 
     const setLanguage = (language: string) => {
         translations.setLanguage(language)
