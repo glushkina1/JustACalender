@@ -14,7 +14,6 @@ import {darkTheme, lightTheme} from './styles/globalColors'
 const App = observer(({}) => {
     const store = useStore()
     translations.setLanguage(store.language)
-    console.log(store.language)
 
     const [isStoreLoaded, setIsStoreLoaded] = useState(false)
 

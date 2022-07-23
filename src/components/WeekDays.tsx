@@ -31,7 +31,7 @@ const WeekDays = () => {
   return <View style={styles.container}>{weekDays}</View>
 }
 
-const makeStyles = (colors: any) =>
+const makeStyles = (colors: ReactNativePaper.ThemeColors) =>
   StyleSheet.create({
     container: {
       paddingHorizontal: 3,

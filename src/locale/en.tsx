@@ -16,6 +16,7 @@ export default {
   periodLength: 'Period length: ',
   giveFeedback: 'Give us your feedback',
   cancel: 'Cancel',
+  save: 'Save',
   periodStarts: 'Period starts',
   monday: 'Monday',
   tuesday: 'Tuesday',
@@ -31,4 +32,9 @@ export default {
   fri: 'Fri',
   sat: 'Sat',
   sun: 'Sun',
+  chooseName: 'Type preferred name or nickname',
+  enterPeriod: 'Enter your period length if you know it, otherwise calculate it',
+  calculatePeriodCycle: 'Select your of 1 to 3 last periods in a calendar below',
+  enterCycle: 'Enter your cycle length if you know it, otherwise calculate it',
+  changesNotSaved: 'Changes have not been saved',
 }

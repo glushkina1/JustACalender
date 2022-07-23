@@ -44,7 +44,7 @@ const LanguageList = ({setModalVisible, store}: LanguageListProps) => {
     )
 }
 
-const makeStyles = (colors: any) =>
+const makeStyles = (colors: ReactNativePaper.ThemeColors) =>
     StyleSheet.create({
         text: {
             color: colors.text,

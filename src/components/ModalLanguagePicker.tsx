@@ -8,30 +8,30 @@ import {useStore} from '../store/rootStore'
 
 import {LanguageList} from './LanguageList'
 
-interface ModalLanguagePickerProps {
-    modalVisible: boolean
-    setModalVisible: React.Dispatch<React.SetStateAction<boolean>>
+interface IModalLanguagePicker {
+    modalLanguageListVisible: boolean
+    setModalLanguageListVisible: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const ModalLanguagePicker = observer(({modalVisible, setModalVisible}: ModalLanguagePickerProps) => {
+const ModalLanguagePicker = observer(({modalLanguageListVisible, setModalLanguageListVisible}: IModalLanguagePicker) => {
     const store = useStore()
     const {translations} = useContext(LocalizationContext)
     const {colors} = useTheme()
     const styles = makeStyles(colors)
 
     const closeModal = () => {
-        Alert.alert('Changes will not be applied')
-        setModalVisible(!modalVisible)
+        Alert.alert('Изменения не применены')
+        setModalLanguageListVisible(!modalLanguageListVisible)
     }
 
     return (
-        <Modal transparent animationType="fade" visible={modalVisible} onRequestClose={() => closeModal()}>
+        <Modal transparent animationType="fade" visible={modalLanguageListVisible} onRequestClose={() => closeModal()}>
             <View style={styles.modalView}>
                 <View style={styles.titleContainer}>
                     <Text style={styles.text}>{translations.chooseLanguage}</Text>
                 </View>
                 <View style={styles.languageListContainer}>
-                    <LanguageList setModalVisible={setModalVisible} store={store}/>
+                    <LanguageList setModalVisible={setModalLanguageListVisible} store={store}/>
                 </View>
                 <View style={styles.buttonContainer}>
                     <TouchableOpacity style={styles.button} onPress={() => closeModal()}>
@@ -44,7 +44,7 @@ const ModalLanguagePicker = observer(({modalVisible, setModalVisible}: ModalLang
     )
 })
 
-const makeStyles = (colors: any) =>
+const makeStyles = (colors: ReactNativePaper.ThemeColors) =>
     StyleSheet.create({
         modalView: {
             flex: 1,

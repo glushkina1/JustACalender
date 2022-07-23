@@ -12,6 +12,7 @@ declare global {
       calendar: string,
       dayColor: string,
       todayColor: string,
+      buttonSave: string,
     }
   }
 }
@@ -29,6 +30,7 @@ export const lightTheme: ReactNativePaper.Theme = {
     calendar: 'white',
     dayColor: 'black',
     todayColor: 'pink',
+    buttonSave: '#ef4b77',
   },
 }
 
@@ -46,6 +48,7 @@ export const darkTheme: ReactNativePaper.Theme = {
     calendar:'#666666',
     dayColor: 'white',
     todayColor: 'black',
+    buttonSave: '#ef4b77',
   },
 }
 

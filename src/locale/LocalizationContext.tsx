@@ -1,6 +1,10 @@
-import React, {createContext, useState} from 'react'
+import React, {createContext, ReactNode, useState} from 'react'
 import {useStore} from '../store/rootStore'
 import {DEFAULT_LANGUAGE, translations} from './translations'
+
+interface IProvider {
+    children?: ReactNode;
+}
 
 export const LocalizationContext = createContext({
     translations,
@@ -9,7 +13,7 @@ export const LocalizationContext = createContext({
 })
 
 
-export const LocalizationProvider = ({children}: any) => {
+export const LocalizationProvider = ({children}: IProvider) => {
     const store = useStore()
     const [appLanguage, setAppLanguage] = useState(DEFAULT_LANGUAGE)
 

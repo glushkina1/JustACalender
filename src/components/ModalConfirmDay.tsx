@@ -41,7 +41,7 @@ const ModalConfirmDay = observer(({ modalVisible, setModalVisible, pressedDay }:
   )
 })
 
-const makeStyles = (colors: any) =>
+const makeStyles = (colors: ReactNativePaper.ThemeColors) =>
   StyleSheet.create({
     centeredView: {
       justifyContent: 'center',
