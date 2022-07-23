@@ -24,8 +24,6 @@ export const centeredOval = {
 
 
 
-
-
 const languageList: Record<string, string> = { en: 'english', rus: 'русский' }
 
 export {DatePatter, DayInMilliSecs, languageList}

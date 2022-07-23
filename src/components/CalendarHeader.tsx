@@ -94,7 +94,7 @@ const CalendarHeader = ({ selectedDate, setSelectedDate, showJumpToday, setShowJ
   )
 }
 
-const makeStyles = (colors: any) =>
+const makeStyles = (colors: ReactNativePaper.ThemeColors) =>
   StyleSheet.create({
     wholeHeaderContainer: {
       flex: 1,
