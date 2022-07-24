@@ -2,10 +2,10 @@ import React from "react"
 import {Switch, Text, View} from "react-native"
 import Fontisto from "react-native-vector-icons/Fontisto"
 import Ionicons from "react-native-vector-icons/Ionicons"
-import { iconSize } from "../constants"
-import {translations} from "../locale/translations"
-import {AdditionalColors} from "../styles/globalColors"
-import { makeGlobalStyles } from "../styles/globalStyles"
+import { iconSize } from "../../constants"
+import {translations} from "../../locale/translations"
+import {AdditionalColors} from "../../styles/globalColors"
+import { makeGlobalStyles } from "../../styles/globalStyles"
 
 
 void Ionicons.loadFont()

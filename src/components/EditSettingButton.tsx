@@ -1,11 +1,11 @@
 import React, {useState} from 'react'
 import {TouchableOpacity, View} from 'react-native'
 import Icons from 'react-native-vector-icons/MaterialCommunityIcons'
-import { iconSize } from '../constants'
-import { ModalCycleLength } from './ModalCycleLength'
-import {ModalLanguagePicker} from './ModalLanguagePicker'
-import {ModalNameInput} from './ModalNameInput'
-import { ModalPeriodLength } from './ModalPeriodLength'
+import {iconSize} from '../constants'
+import {ModalCycleLength} from './settings/modals/ModalCycleLength'
+import {ModalLanguagePicker} from './settings/modals/ModalLanguagePicker'
+import {ModalNameInput} from './settings/modals/ModalNameInput'
+import {ModalPeriodLength} from './settings/modals/ModalPeriodLength'
 
 
 interface IEditSettingButton {
@@ -13,14 +13,11 @@ interface IEditSettingButton {
     typeContent: string
 }
 
-
-export const EditSettingButton = ({typeContent}: IEditSettingButton) => {
-
+const EditSettingButton = ({typeContent}: IEditSettingButton) => {
     const [modalLanguageListVisible, setModalLanguageListVisible] = useState<boolean>(false)
     const [modalNameInputVisible, setModalNameInputVisible] = useState<boolean>(false)
     const [modalPeriodLengthVisible, setModalPeriodLengthVisible] = useState<boolean>(false)
     const [modalCycleLengthVisible, setModalCycleLengthVisible] = useState<boolean>(false)
-
 
     const handlePicker = () => {
         switch (typeContent) {
@@ -55,11 +52,12 @@ export const EditSettingButton = ({typeContent}: IEditSettingButton) => {
             <ModalNameInput modalNameInputVisible={modalNameInputVisible}
                             setModalNameInputVisible={setModalNameInputVisible}/>
             <ModalPeriodLength modalPeriodLengthVisible={modalPeriodLengthVisible}
-                            setModalPeriodLengthVisible={setModalPeriodLengthVisible}/>
+                               setModalPeriodLengthVisible={setModalPeriodLengthVisible}/>
             <ModalCycleLength modalCycleLengthVisible={modalCycleLengthVisible}
-                            setModalCycleLengthVisible={setModalCycleLengthVisible}/>
-
+                              setModalCycleLengthVisible={setModalCycleLengthVisible}/>
         </View>
 
     )
 }
+
+export {EditSettingButton}

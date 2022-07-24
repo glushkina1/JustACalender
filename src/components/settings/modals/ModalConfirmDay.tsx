@@ -3,8 +3,8 @@ import React from 'react'
 import { Alert, Dimensions, Modal, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { useTheme } from 'react-native-paper'
 
-import { fillMarkedDays } from '../functions/fillMarkedDays'
-import { useStore } from '../store/rootStore'
+import { fillMarkedDays } from '../../../functions/fillMarkedDays'
+import { useStore } from '../../../store/rootStore'
 
 interface ModalConfirmDayProps {
   modalVisible: boolean

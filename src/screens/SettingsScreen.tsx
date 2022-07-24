@@ -5,16 +5,16 @@ import {useTheme} from 'react-native-paper'
 import Fontisto from 'react-native-vector-icons/Fontisto'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import {CycleLengthLine} from '../components/settings/CyclePeriodLine'
+import {FeedbackContent} from '../components/settings/FeedbackContent'
+import {LanguageLine} from '../components/settings/LanguageLine'
+import {PeriodLengthLine} from '../components/settings/PeriodLengthLine'
+import {RemainderLine} from '../components/settings/RemindersLine'
+import {ThemeLine} from '../components/settings/ThemeLine'
+import {UserNameLine} from '../components/settings/UserNameLine'
+import {translations} from '../locale/translations'
 import {useStore} from '../store/rootStore'
 import {makeGlobalStyles} from '../styles/globalStyles'
-import { UserNameLine } from '../components/UserNameLine'
-import { PeriodLengthLine } from '../components/PeriodLengthLine'
-import { CycleLengthLine } from '../components/CyclePeriodLine'
-import { translations } from '../locale/translations'
-import { FeedbackContent } from '../components/FeedbackContent'
-import { RemainderLine } from '../components/RemindersLine'
-import { LanguageLine } from '../components/LanguageLine'
-import { ThemeLine } from '../components/ThemeLine'
 
 void MaterialCommunityIcons.loadFont()
 void Fontisto.loadFont()
@@ -32,21 +32,21 @@ const SettingsScreen = observer(({}) => {
 
     return (
         <View style={styles.container}>
-            <View style={[globalStyles.generalStyle, styles.aboutMe]}>
+            <View style={[styles.generalStyle, styles.aboutMe]}>
                 <Text style={[globalStyles.text, styles.title]}>{translations.aboutMe}</Text>
             </View>
 
-            <View style={[globalStyles.generalStyle, globalStyles.block]}>
+            <View style={[styles.generalStyle, styles.block]}>
                 <UserNameLine colors={colors} userName={store.userName}/>
                 <PeriodLengthLine colors={colors} periodLength={store.periodLength}/>
                 <CycleLengthLine colors={colors} cycleLength={store.cycleLength}/>
             </View>
 
-            <View style={[globalStyles.generalStyle, styles.settingsTitle]}>
+            <View style={[styles.generalStyle, styles.settingsTitle]}>
                 <Text style={[globalStyles.text, styles.title]}>{translations.settings}</Text>
             </View>
 
-            <View style={[globalStyles.generalStyle, globalStyles.block]}>
+            <View style={[styles.generalStyle, styles.block]}>
                 <RemainderLine colors={colors}/>
                 <LanguageLine colors={colors} language={store.language}/>
                 <ThemeLine colors={colors} isDarkMode={store.isDarkMode} toggleDarkMode={toggleDarkMode}/>
@@ -64,15 +64,8 @@ const makeStyles = (colors: ReactNativePaper.ThemeColors) =>
             alignItems: 'center',
             backgroundColor: colors.background,
         },
-        zIndex: {
-            zIndex: 1,
-        },
         settingsTitle: {
             flex: 1,
-        },
-        dropDownPicker: {
-            flex: 2,
-            alignSelf: 'flex-start',
         },
         aboutMe: {
             flex: 1,
@@ -91,7 +84,6 @@ const makeStyles = (colors: ReactNativePaper.ThemeColors) =>
             flex: 4,
             justifyContent: 'flex-start',
         },
-
     })
 
 export {SettingsScreen}

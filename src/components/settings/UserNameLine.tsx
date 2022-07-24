@@ -1,8 +1,8 @@
 import React from "react"
 import {Text, View} from "react-native"
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
-import { makeGlobalStyles } from "../styles/globalStyles"
-import {EditSettingButton} from "./EditSettingButton"
+import { makeGlobalStyles } from "../../styles/globalStyles"
+import {EditSettingButton} from "../EditSettingButton"
 
 void MaterialCommunityIcons.loadFont()
 

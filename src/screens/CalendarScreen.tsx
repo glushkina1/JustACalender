@@ -1,13 +1,13 @@
 import {format} from 'date-fns'
 import {observer} from 'mobx-react-lite'
-import React, {useCallback, useContext, useState} from 'react'
+import React, {useContext, useState} from 'react'
 import {Dimensions, SafeAreaView, StyleSheet, Text, TouchableOpacity, View} from 'react-native'
 import {Calendar} from 'react-native-calendars'
 import {DateData} from 'react-native-calendars/src/types'
 import {useTheme} from 'react-native-paper'
 
 import {CalendarHeader} from '../components/CalendarHeader'
-import {ModalConfirmDay} from '../components/ModalConfirmDay'
+import {ModalConfirmDay} from '../components/settings/modals/ModalConfirmDay'
 import {DatePatter} from '../constants'
 import {markedDates} from '../functions/fillMarkedDays'
 import {LocalizationContext} from '../locale/LocalizationContext'
@@ -26,9 +26,9 @@ const CalendarScreen = observer(({}) => {
     const styles = makeStyles(colors)
 
 
-    const dateFormatter = useCallback((selectedDate: Date) => {
+    const dateFormatter = (selectedDate: Date) => {
         return format(selectedDate, DatePatter.YEAR_MONTH)
-    },[selectedDate])
+    }
 
     const CalendarHeaderHandler = () => {
         return CalendarHeader({selectedDate, setSelectedDate, showJumpToday, setShowJumpToday})

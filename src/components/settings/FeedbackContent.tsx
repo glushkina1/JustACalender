@@ -1,10 +1,10 @@
 import React from "react"
 import {StyleSheet, Text, TouchableOpacity, View } from "react-native"
 import EvilIcons from "react-native-vector-icons/EvilIcons"
-import { translations } from "../locale/translations"
-import {AdditionalColors} from '../styles/globalColors'
-import { IColors } from "../styles/globalInterfaces"
-import { makeGlobalStyles } from '../styles/globalStyles'
+import { translations } from "../../locale/translations"
+import {AdditionalColors} from '../../styles/globalColors'
+import { IColors } from "../../styles/globalInterfaces"
+import { makeGlobalStyles } from '../../styles/globalStyles'
 
 void EvilIcons.loadFont()
 

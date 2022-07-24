@@ -9,11 +9,6 @@ const makeGlobalStyles = (colors: ReactNativePaper.ThemeColors) =>
             fontSize: 27,
             fontFamily: 'YanoneKaffeesatz-Light',
         },
-        generalStyle: {
-            alignItems: 'center',
-            justifyContent: 'center',
-            width: Dimensions.get('window').width * 0.95,
-        },
         row: {
             flexDirection: 'row',
             height: 45,
@@ -22,10 +17,6 @@ const makeGlobalStyles = (colors: ReactNativePaper.ThemeColors) =>
             borderColor: colors.greyBlack,
             marginVertical: 10,
             alignItems: 'baseline',
-        },
-        block: {
-            flex: 4,
-            justifyContent: 'flex-start',
         },
         mainTextPosition: {
             flex: 5,

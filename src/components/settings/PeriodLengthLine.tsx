@@ -1,11 +1,11 @@
 import React from "react"
 import {Text, View} from "react-native"
 import Fontisto from "react-native-vector-icons/Fontisto"
-import { iconSize } from "../constants"
-import {translations} from "../locale/translations"
-import {AdditionalColors} from "../styles/globalColors"
-import {makeGlobalStyles} from "../styles/globalStyles"
-import {EditSettingButton} from "./EditSettingButton"
+import { iconSize } from "../../constants"
+import {translations} from "../../locale/translations"
+import {AdditionalColors} from "../../styles/globalColors"
+import {makeGlobalStyles} from "../../styles/globalStyles"
+import {EditSettingButton} from "../EditSettingButton"
 
 
 void Fontisto.loadFont()
