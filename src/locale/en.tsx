@@ -11,6 +11,7 @@ export default {
   language: 'Language',
   chooseLanguage: 'Choose your language',
   darkMode: 'Dark mode',
+  lightMode: 'Light mode',
   remainders: 'Remainders',
   cycleLength: 'Cycle length: ',
   periodLength: 'Period length: ',

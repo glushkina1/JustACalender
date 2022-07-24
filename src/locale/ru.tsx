@@ -10,6 +10,7 @@ export default {
     resetEverything: 'Удалить все данные',
     info: 'Дополнительная информация',
     darkMode: 'Темная тема',
+    lightMode: 'Светлая тема',
     remainders: 'Напоминания',
     cycleLength: 'Длина цикла: ',
     periodLength: 'Длина периода: ',

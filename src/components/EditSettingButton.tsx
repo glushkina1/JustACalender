@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {TouchableOpacity, View} from 'react-native'
 import Icons from 'react-native-vector-icons/MaterialCommunityIcons'
+import { iconSize } from '../constants'
 import { ModalCycleLength } from './ModalCycleLength'
 import {ModalLanguagePicker} from './ModalLanguagePicker'
 import {ModalNameInput} from './ModalNameInput'
@@ -47,7 +48,7 @@ export const EditSettingButton = ({typeContent}: IEditSettingButton) => {
     return (
         <View>
             <TouchableOpacity onPress={() => handlePicker()}>
-                <Icons color="grey" name="pencil" size={25}/>
+                <Icons color="grey" name="pencil" size={iconSize}/>
             </TouchableOpacity>
             <ModalLanguagePicker modalLanguageListVisible={modalLanguageListVisible}
                                  setModalLanguageListVisible={setModalLanguageListVisible}/>

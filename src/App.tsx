@@ -40,7 +40,6 @@ const App = observer(({}) => {
                             <View style={styles.container}>
                                 <StatusBar animated barStyle={store.isDarkMode ? 'light-content' : 'dark-content'}/>
                                 <Tabs />
-                                {/*<SplashScreen/>*/}
                             </View>
                         </PaperProvider>
                     </LocalizationProvider>
