@@ -2,9 +2,10 @@ import {observer} from 'mobx-react-lite'
 import React, {useContext} from 'react'
 import {Alert, Dimensions, Modal, StyleSheet, Text, TouchableOpacity, View} from 'react-native'
 import {useTheme} from 'react-native-paper'
-import {LocalizationContext} from '../locale/LocalizationContext'
+import {LocalizationContext} from '../../../locale/LocalizationContext'
 
-import {useStore} from '../store/rootStore'
+import {useStore} from '../../../store/rootStore'
+import { makeGlobalStyles } from '../../../styles/globalStyles'
 
 import {LanguageList} from './LanguageList'
 
@@ -18,6 +19,7 @@ const ModalLanguagePicker = observer(({modalLanguageListVisible, setModalLanguag
     const {translations} = useContext(LocalizationContext)
     const {colors} = useTheme()
     const styles = makeStyles(colors)
+    const globalStyles = makeGlobalStyles(colors)
 
     const closeModal = () => {
         Alert.alert('Изменения не применены')
@@ -28,14 +30,14 @@ const ModalLanguagePicker = observer(({modalLanguageListVisible, setModalLanguag
         <Modal transparent animationType="fade" visible={modalLanguageListVisible} onRequestClose={() => closeModal()}>
             <View style={styles.modalView}>
                 <View style={styles.titleContainer}>
-                    <Text style={styles.text}>{translations.chooseLanguage}</Text>
+                    <Text style={globalStyles.text}>{translations.chooseLanguage}</Text>
                 </View>
                 <View style={styles.languageListContainer}>
                     <LanguageList setModalVisible={setModalLanguageListVisible} store={store}/>
                 </View>
                 <View style={styles.buttonContainer}>
                     <TouchableOpacity style={styles.button} onPress={() => closeModal()}>
-                        <Text style={styles.text}>{translations.cancel}</Text>
+                        <Text style={globalStyles.text}>{translations.cancel}</Text>
                     </TouchableOpacity>
                 </View>
 
@@ -59,11 +61,6 @@ const makeStyles = (colors: ReactNativePaper.ThemeColors) =>
             shadowOpacity: 0.25,
             shadowRadius: 4,
             elevation: 5,
-        },
-        text: {
-            color: colors.text,
-            textAlign: 'center',
-            fontSize: 22,
         },
         buttonContainer: {
             flex: 1,

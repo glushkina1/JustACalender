@@ -2,11 +2,11 @@ import {observer} from 'mobx-react-lite'
 import React, {useContext, useState} from 'react'
 import {Alert, Dimensions, Modal, StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native'
 import {useTheme} from 'react-native-paper'
-import { makeGlobalStyles } from '../styles/globalStyles'
+import { makeGlobalStyles } from '../../../styles/globalStyles'
 
-import {LocalizationContext} from '../locale/LocalizationContext'
+import {LocalizationContext} from '../../../locale/LocalizationContext'
 
-import {useStore} from '../store/rootStore'
+import {useStore} from '../../../store/rootStore'
 
 
 interface IModalPeriodLength {

@@ -3,7 +3,7 @@ import React from 'react'
 import { Alert, Dimensions, Modal, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { useTheme } from 'react-native-paper'
 
-import { fillMarkedDays } from '../functions/fillMarkedDays'
+import { addNewPeriod } from '../functions/addNewPeriod'
 import { useStore } from '../store/rootStore'
 
 interface ModalConfirmDayProps {
@@ -17,7 +17,7 @@ const ModalConfirmDay = observer(({ modalVisible, setModalVisible, pressedDay }:
   const styles = makeStyles(colors)
 
   const handlePeriodStarts = () => {
-    fillMarkedDays(pressedDay, store)
+    addNewPeriod(pressedDay, store)
     setModalVisible(false)
   }
   const closeModal = () => {

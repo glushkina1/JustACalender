@@ -2,64 +2,58 @@ import {observer} from 'mobx-react-lite'
 import React, {useContext, useState} from 'react'
 import {Alert, Dimensions, Modal, StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native'
 import {useTheme} from 'react-native-paper'
-import { makeGlobalStyles } from '../styles/globalStyles'
+import { makeGlobalStyles } from '../../../styles/globalStyles'
 
-import {LocalizationContext} from '../locale/LocalizationContext'
+import {LocalizationContext} from '../../../locale/LocalizationContext'
 
-import {useStore} from '../store/rootStore'
+import {useStore} from '../../../store/rootStore'
 
 
-interface IModalCycleLength {
-    modalCycleLengthVisible: boolean
-    setModalCycleLengthVisible: React.Dispatch<React.SetStateAction<boolean>>
+interface IModalNameInput {
+    modalNameInputVisible: boolean
+    setModalNameInputVisible: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const ModalCycleLength = observer(({modalCycleLengthVisible, setModalCycleLengthVisible}: IModalCycleLength) => {
+const ModalNameInput = observer(({modalNameInputVisible, setModalNameInputVisible}: IModalNameInput) => {
     const store = useStore()
-    const cycleLength = store.cycleLength
+    const userName = store.userName
     const {translations} = useContext(LocalizationContext)
     const {colors} = useTheme()
     const styles = makeStyles(colors)
     const globalStyles = makeGlobalStyles(colors)
 
-    const [currentCycle, setCurrentCycle] = useState(cycleLength.toString());
+    const [text, onChangeText] = useState(userName);
 
     const closeModal = () => {
         Alert.alert(translations.changesNotSaved)
-        setModalCycleLengthVisible(!modalCycleLengthVisible)
+        setModalNameInputVisible(!modalNameInputVisible)
     }
-    const handleNumber = (number: string) => {
-        const modified = (number.replace(/\D/g, ""))
-        setCurrentCycle(modified)
-    }
-
-    const updatePeriodLength = () => {
-        store.changeCycleLength(parseInt(currentCycle))
-        setModalCycleLengthVisible(false)
+    const updateUserName = () => {
+        store.changeUserName(text)
+        setModalNameInputVisible(!modalNameInputVisible)
     }
 
     return (
-        <Modal transparent animationType="fade" visible={modalCycleLengthVisible} onRequestClose={() => closeModal()}>
+        <Modal transparent animationType="fade" visible={modalNameInputVisible} onRequestClose={() => closeModal()}>
             <View style={styles.modalView}>
                 <View style={styles.titleContainer}>
-                    <Text style={globalStyles.text}>{translations.enterPeriod}</Text>
+                    <Text style={globalStyles.text}>{translations.chooseName}</Text>
                 </View>
                 <View style={styles.inputContainer}>
                     <TextInput
                         style={styles.input}
-                        keyboardType="number-pad"
-                        onChangeText={text => handleNumber(text)}
-                        value={currentCycle}
+                        onChangeText={onChangeText}
+                        value={text}
                     />
                 </View>
-                <View style={styles.buttonsContainer}>
-                    <TouchableOpacity style={[styles.button, styles.cancelButton]} onPress={() => closeModal()}>
-                        <Text style={globalStyles.text}>{translations.cancel}</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={[styles.button, styles.saveButton]} onPress={() => updatePeriodLength()}>
-                        <Text style={globalStyles.text}>{translations.save}</Text>
-                    </TouchableOpacity>
-                </View>
+                    <View style={styles.buttonsContainer}>
+                        <TouchableOpacity style={[styles.button, styles.cancelButton]} onPress={() => closeModal()}>
+                            <Text style={globalStyles.text}>{translations.cancel}</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={[styles.button, styles.saveButton]} onPress={() => updateUserName()}>
+                            <Text style={globalStyles.text}>{translations.save}</Text>
+                        </TouchableOpacity>
+                    </View>
             </View>
         </Modal>
     )
@@ -120,4 +114,4 @@ const makeStyles = (colors: ReactNativePaper.ThemeColors) =>
         }
     })
 
-export {ModalCycleLength}
+export {ModalNameInput}

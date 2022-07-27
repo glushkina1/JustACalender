@@ -1,12 +1,12 @@
 import React, {useContext} from 'react'
 import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native'
 import {useTheme} from 'react-native-paper'
-import { IRootStore } from 'src/store/rootStore'
+import { IRootStore } from '../../../store/rootStore'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 
-import {languageList} from '../constants'
-import {LocalizationContext} from '../locale/LocalizationContext'
-import { AdditionalColors } from '../styles/globalColors'
+import {languageList} from '../../../constants'
+import {LocalizationContext} from '../../../locale/LocalizationContext'
+import { AdditionalColors } from '../../../styles/globalColors'
 
 void AntDesign.loadFont()
 

@@ -22,6 +22,7 @@ export const centeredOval = {
     height: ovalHeight,
 }
 
+export const iconSize = 32;
 
 
 const languageList: Record<string, string> = { en: 'english', rus: 'русский' }

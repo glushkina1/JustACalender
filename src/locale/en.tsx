@@ -11,6 +11,7 @@ export default {
   language: 'Language',
   chooseLanguage: 'Choose your language',
   darkMode: 'Dark mode',
+  lightMode: 'Light mode',
   remainders: 'Remainders',
   cycleLength: 'Cycle length: ',
   periodLength: 'Period length: ',
@@ -18,6 +19,7 @@ export default {
   cancel: 'Cancel',
   save: 'Save',
   periodStarts: 'Period starts',
+  periodStartsToday: 'Period starts today',
   monday: 'Monday',
   tuesday: 'Tuesday',
   wednesday: 'Wednesday',
@@ -37,4 +39,7 @@ export default {
   calculatePeriodCycle: 'Select your of 1 to 3 last periods in a calendar below',
   enterCycle: 'Enter your cycle length if you know it, otherwise calculate it',
   changesNotSaved: 'Changes have not been saved',
+  ovulation: 'Ovulation:',
+  period: 'Period:',
+  daysLeft: 'days left',
 }
