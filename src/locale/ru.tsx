@@ -20,6 +20,7 @@ export default {
     language: 'Язык',
     chooseLanguage: 'Выберите свой язык',
     periodStarts: 'Начало периода',
+    periodStartsToday: 'Сегодня начало периода',
     monday: 'Понедельник',
     tuesday: 'Вторник',
     wednesday: 'Среда',
@@ -39,4 +40,7 @@ export default {
     calculatePeriodCycle: 'Выберите даты 1-3 последних менструаций',
     enterCycle: 'Если Вы длину вашего менструального цикла, то введите его, иначе рассчитайте значение в календаре ниже',
     changesNotSaved: 'Изменения не сохранены',
+    ovulation: 'Овуляция:',
+    period: 'Менструальный цикл:',
+    daysLeft: 'дней осталось',
 }

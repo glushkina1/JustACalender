@@ -7,23 +7,25 @@ import {DateData} from 'react-native-calendars/src/types'
 import {useTheme} from 'react-native-paper'
 
 import {CalendarHeader} from '../components/CalendarHeader'
-import {ModalConfirmDay} from '../components/settings/modals/ModalConfirmDay'
+import {ModalConfirmDay} from '../components/ModalConfirmDay'
 import {DatePatter} from '../constants'
-import {markedDates} from '../functions/fillMarkedDays'
+import {makeDaysMarked} from '../functions/makeDaysMarked'
 import {LocalizationContext} from '../locale/LocalizationContext'
 import {useStore} from '../store/rootStore'
 
 const CalendarScreen = observer(({}) => {
     const store = useStore()
+    const periods = store.historyPeriods
+    const isDarkMode = store.isDarkMode
     const [modalVisible, setModalVisible] = useState<boolean>(false)
     const [selectedDate, setSelectedDate] = useState<Date>(new Date())
-    const [showJumpToday, setShowJumpToday] = useState<boolean>(false)
     const [pressedDay, setPressedDay] = useState<string>('')
     const {translations} = useContext(LocalizationContext)
 
-
     const {colors} = useTheme()
     const styles = makeStyles(colors)
+
+    // predicateFuturePeriods()
 
 
     const dateFormatter = (selectedDate: Date) => {
@@ -31,12 +33,13 @@ const CalendarScreen = observer(({}) => {
     }
 
     const CalendarHeaderHandler = () => {
-        return CalendarHeader({selectedDate, setSelectedDate, showJumpToday, setShowJumpToday})
+        return CalendarHeader({selectedDate, setSelectedDate})
     }
 
-    const keyRender = (selectedDate: Date,isDarkMode: boolean) => {
+    const keyRender = (selectedDate: Date, isDarkMode: boolean, periods: Array<string> | never []) => {
         const date = dateFormatter(selectedDate)
-        return `${date}-${isDarkMode}`
+        const periodLength = Object.keys(periods).length
+        return `${date}-${isDarkMode}-${periodLength}`
     }
 
     const handleDayPress = (day: DateData) => {
@@ -51,8 +54,8 @@ const CalendarScreen = observer(({}) => {
                     current={dateFormatter(selectedDate)}
                     customHeader={CalendarHeaderHandler}
                     firstDay={1}
-                    key={keyRender(selectedDate,store.isDarkMode)}
-                    markedDates={markedDates()}
+                    key={keyRender(selectedDate, isDarkMode, periods)}
+                    markedDates={makeDaysMarked()}
                     markingType="period"
                     style={styles.calendar}
                     theme={{

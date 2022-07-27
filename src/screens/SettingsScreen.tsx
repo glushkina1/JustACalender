@@ -20,7 +20,7 @@ void MaterialCommunityIcons.loadFont()
 void Fontisto.loadFont()
 void Ionicons.loadFont()
 
-const SettingsScreen = observer(({}) => {
+const SettingsScreen = observer(({navigation}) => {
     const store = useStore()
     const {colors} = useTheme()
     const styles = makeStyles(colors)

@@ -3,12 +3,11 @@ import {makeAutoObservable} from 'mobx'
 import {AsyncTrunk} from 'mobx-sync'
 import {createContext, useContext} from 'react'
 
-import {DayStyle} from '../styles/markedDayStyle'
-
 
 export interface IRootStore {
     isDarkMode: boolean,
-    periods: Record<string, DayStyle>,
+    historyPeriods: Array<string> | never[],
+    predictedPeriods: Array<string> | never[],
     language: string,
     periodLength: number,
     cycleLength: number,
@@ -19,15 +18,20 @@ export interface IRootStore {
     changeUserName: (name: string) => void,
     changePeriodLength: (period: number) => void,
     changeCycleLength: (cycle: number) => void,
+    addPeriod: (period: any) => void,
 }
 
 export const rootStore = makeAutoObservable({
     isDarkMode: false,
-    periods: {},
+    historyPeriods: [],
+    predictedPeriods: [],
     language: 'en',
     periodLength: 5,
     cycleLength: 26,
     userName: 'SOFIA',
+    addPeriod(newHistoryPeriod: any) {
+        this.historyPeriods = newHistoryPeriod
+    },
     changeUserName(name: string) {
         this.userName = name
     },
@@ -41,7 +45,7 @@ export const rootStore = makeAutoObservable({
         this.cycleLength = cycle
     },
     resetEverything() {
-        this.periods = {}
+        this.historyPeriods = []
     },
     toggleDarkMode() {
         this.isDarkMode = !this.isDarkMode
