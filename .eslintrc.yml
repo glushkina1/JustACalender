@@ -45,7 +45,7 @@ rules:
   no-console: 'warn'
 
   curly: 'warn'
-  react-hooks/exhaustive-deps: 'warn'
+  react-hooks/exhaustive-deps: 'off'
   react/display-name: 'off'
   react/no-set-state: 'error'
   react/no-array-index-key: 'error'

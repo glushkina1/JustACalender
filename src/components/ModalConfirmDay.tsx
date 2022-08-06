@@ -4,15 +4,15 @@ import { Alert, Dimensions, Modal, StyleSheet, Text, TouchableOpacity, View } fr
 import { useTheme } from 'react-native-paper'
 
 import { addNewPeriod } from '../functions/addNewPeriod'
-import { useStore } from '../store/rootStore'
+import { IRootStore } from '../store/rootStore'
 
 interface ModalConfirmDayProps {
   modalVisible: boolean
   setModalVisible: React.Dispatch<React.SetStateAction<boolean>>
   pressedDay: string
+  store: IRootStore
 }
-const ModalConfirmDay = observer(({ modalVisible, setModalVisible, pressedDay }: ModalConfirmDayProps) => {
-  const store = useStore()
+const ModalConfirmDay = observer(({ modalVisible, setModalVisible, pressedDay, store }: ModalConfirmDayProps) => {
   const { colors } = useTheme()
   const styles = makeStyles(colors)
 

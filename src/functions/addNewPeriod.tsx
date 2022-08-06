@@ -1,11 +1,10 @@
 import { addDays, format } from 'date-fns'
-import { DatePatter } from '../constants'
 
-import { useStore } from '../store/rootStore'
+import { DatePatter } from '../constants'
 
 interface StoreProps {
   addPeriod: any
-  historyPeriods: never[] | Array<string>
+  historyPeriods: never[] | string[]
 }
 
 const addNewPeriod = (selectedDay: string, store: StoreProps) => {
@@ -17,19 +16,11 @@ const addNewPeriod = (selectedDay: string, store: StoreProps) => {
   }
 }
 
-
 const getLastDay = (selectedDay: string) => {
   const unformattedLastDay = addDays(new Date(selectedDay), 4)
   const lastDay = format(new Date(unformattedLastDay), DatePatter.YEAR_MONTH_DAY)
 
   return lastDay
-}
-
-
-
-export const markedDates = () => {
-  const store = useStore()
-  return store.historyPeriods
 }
 
 export { addNewPeriod }
