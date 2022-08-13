@@ -1,63 +1,57 @@
 import { observer } from 'mobx-react-lite'
 import React from 'react'
-import { Alert, Dimensions, Modal, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Dimensions, Modal, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { useTheme } from 'react-native-paper'
 
 import { addNewPeriod } from '../functions/addNewPeriod'
+import {Error} from '../constants'
 import { useStore } from '../store/rootStore'
 
-interface ModalConfirmDayProps {
-  modalVisible: boolean
-  setModalVisible: React.Dispatch<React.SetStateAction<boolean>>
+interface ModalProps {
+  modalConfirmDayVisible: boolean
+  setModalConfirmDayVisible: React.Dispatch<React.SetStateAction<boolean>>
   pressedDay: string
 }
-const ModalConfirmDay = observer(({ modalVisible, setModalVisible, pressedDay }: ModalConfirmDayProps) => {
+const ModalConfirmDay = observer(({ modalConfirmDayVisible, setModalConfirmDayVisible, pressedDay }: ModalProps) => {
   const store = useStore()
   const { colors } = useTheme()
   const styles = makeStyles(colors)
 
   const handlePeriodStarts = () => {
-    addNewPeriod(pressedDay, store)
-    setModalVisible(false)
+    if (pressedDay !== Error.SELECTED_DAY) {
+      addNewPeriod(pressedDay, store)
+    }
+    setModalConfirmDayVisible(false)
   }
   const closeModal = () => {
-    Alert.alert('Modal has been closed.')
-    setModalVisible(!modalVisible)
+    setModalConfirmDayVisible(!modalConfirmDayVisible)
   }
 
   return (
-    <View style={styles.centeredView}>
-      <Modal transparent animationType="fade" visible={modalVisible} onRequestClose={() => closeModal()}>
+      <Modal transparent animationType="fade" visible={modalConfirmDayVisible} onRequestClose={() => closeModal()}>
         <View style={styles.modalView}>
           <TouchableOpacity style={styles.button} onPress={() => handlePeriodStarts()}>
             <Text style={styles.textStyle}>Period starts</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={() => setModalVisible(!modalVisible)}>
+          <TouchableOpacity style={styles.button} onPress={() => closeModal()}>
             <Text style={styles.textStyle}>Cancel</Text>
           </TouchableOpacity>
         </View>
       </Modal>
-    </View>
   )
 })
 
 const makeStyles = (colors: ReactNativePaper.ThemeColors) =>
   StyleSheet.create({
-    centeredView: {
-      justifyContent: 'center',
-      alignItems: 'center',
-      marginTop: 22,
-    },
     modalView: {
       justifyContent: 'space-around',
       marginTop: Dimensions.get('window').height * 0.4,
-      width: 220,
-      height: 150,
-      marginHorizontal: Dimensions.get('window').width * 0.22,
+      width: 250,
+      height: 180,
       backgroundColor: colors.background,
       borderRadius: 20,
-      padding: 20,
-      alignItems: 'center',
+      padding: 40,
+      alignSelf: 'center',
       shadowColor: '#000',
       shadowOffset: {
         width: 0,

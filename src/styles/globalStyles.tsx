@@ -28,6 +28,11 @@ const makeGlobalStyles = (colors: ReactNativePaper.ThemeColors) =>
         iconPosition: {
             justifyContent: 'flex-start',
         },
+        generalStyle: {
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: Dimensions.get('window').width * 0.95,
+        }
     });
 
 

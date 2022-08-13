@@ -1,13 +1,13 @@
 import {NavigationContainer} from '@react-navigation/native'
 import {observer} from 'mobx-react-lite'
 import React, {useEffect, useState} from 'react'
-import { StatusBar, StyleSheet, View} from 'react-native'
+import {StatusBar, StyleSheet, View} from 'react-native'
 import {Provider as PaperProvider} from 'react-native-paper'
 
 import Tabs from './components/Tabs'
 import {LocalizationProvider} from './locale/LocalizationContext'
 import {translations} from './locale/translations'
-import FlowerLogo from './components/FlowerLogo'
+import SplashScreen from './screens/SplashScreen'
 import {StoreProvider, trunk, useStore} from './store/rootStore'
 import {darkTheme, lightTheme} from './styles/globalColors'
 
@@ -15,21 +15,20 @@ const App = observer(({}) => {
     const store = useStore()
     translations.setLanguage(store.language)
 
-    const [isStoreLoaded, setIsStoreLoaded] = useState(false)
+    const [isStoreLoaded, setIsStoreLoaded] = useState<boolean>(false)
 
     useEffect(() => {
         const rehydrate = async () => {
             await trunk.init()
             setIsStoreLoaded(true)
         }
-        rehydrate().catch(() => console.log('problems with localStorage'))
+        rehydrate().catch(() => console.log('problems with localStorage or calculation next period'))
     }, [])
+
 
     if (!isStoreLoaded) {
         return (
-            <View style={styles.indicator}>
-                <FlowerLogo/>
-            </View>
+            <SplashScreen/>
         )
     } else {
         return (
@@ -39,7 +38,7 @@ const App = observer(({}) => {
                         <PaperProvider theme={store.isDarkMode ? darkTheme : lightTheme}>
                             <View style={styles.container}>
                                 <StatusBar animated barStyle={store.isDarkMode ? 'light-content' : 'dark-content'}/>
-                                <Tabs />
+                                <Tabs/>
                             </View>
                         </PaperProvider>
                     </LocalizationProvider>

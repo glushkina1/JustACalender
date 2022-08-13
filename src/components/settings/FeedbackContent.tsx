@@ -1,5 +1,5 @@
 import React from "react"
-import {StyleSheet, Text, TouchableOpacity, View } from "react-native"
+import {Linking, StyleSheet, Text, TouchableOpacity, View } from "react-native"
 import EvilIcons from "react-native-vector-icons/EvilIcons"
 import { translations } from "../../locale/translations"
 import {AdditionalColors} from '../../styles/globalColors'
@@ -11,11 +11,14 @@ void EvilIcons.loadFont()
 
 const FeedbackContent = (colors: IColors) => {
     const globalStyles = makeGlobalStyles(colors.colors)
+    const loadInBrowser = () => {
+        Linking.openURL("https://t.me/anastasiia_idle").catch(err => console.error("Couldn't load page", err));
+    };
 
 
     return (
         <View style={[globalStyles.generalStyle, styles.feedback]}>
-            <TouchableOpacity onPress={() => null}>
+            <TouchableOpacity onPress={() => loadInBrowser()}>
                 <View style={[globalStyles.row, styles.widthFeedback]}>
                     <Text style={[globalStyles.text, styles.textSharingOpinion]}>{translations.giveFeedback}</Text>
                     <EvilIcons color={AdditionalColors.azure} name="sc-telegram" size={45}

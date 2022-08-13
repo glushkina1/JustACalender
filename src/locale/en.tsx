@@ -36,10 +36,11 @@ export default {
   sun: 'Sun',
   chooseName: 'Type preferred name or nickname',
   enterPeriod: 'Enter your period length if you know it, otherwise calculate it',
-  calculatePeriodCycle: 'Select your of 1 to 3 last periods in a calendar below',
   enterCycle: 'Enter your cycle length if you know it, otherwise calculate it',
   changesNotSaved: 'Changes have not been saved',
   ovulation: 'Ovulation:',
   period: 'Period:',
+  errorDaysLeft: 'Please enter at least one period of yours to see how many ',
   daysLeft: 'days left',
+  ovulationInfo: 'Ovulation is an event that occurs 2 weeks before the next cycle'
 }

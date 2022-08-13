@@ -30,7 +30,7 @@ const Tabs = observer(({}) => {
   return (
     <View style={styles.container}>
       <Tab.Navigator
-        initialRouteName="Calendar"
+        initialRouteName="Today"
         screenOptions={({ route }) => ({
           tabBarStyle: {
             height: 90,

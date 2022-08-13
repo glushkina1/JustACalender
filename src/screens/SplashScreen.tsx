@@ -1,8 +1,8 @@
 import React from "react";
 import {StyleSheet, Text, View} from "react-native";
-import FlowerLogo from "../components/FlowerLogo"
 import {observer} from 'mobx-react-lite'
 import {useTheme} from "react-native-paper";
+import Lottie from 'lottie-react-native';
 
 
 const SplashScreen = observer(({}) => {
@@ -14,7 +14,9 @@ const SplashScreen = observer(({}) => {
             <View style={styles.titleContainer}>
                 <Text style={styles.textTitle}>Just a Calendar</Text>
             </View>
-            <FlowerLogo/>
+            <View style={styles.lottieIcon}>
+                <Lottie source={require('../../assets/splash.json')} autoPlay loop/>
+            </View>
             <View style={styles.loadingContainer}>
                 <Text style={styles.textLoading}>Loading...</Text>
             </View>
@@ -27,6 +29,7 @@ const makeStyles = (colors: ReactNativePaper.ThemeColors) =>
     StyleSheet.create({
         container: {
             flex: 1,
+            width: '100%',
             backgroundColor: colors.background,
         },
         titleContainer: {
@@ -48,6 +51,9 @@ const makeStyles = (colors: ReactNativePaper.ThemeColors) =>
             fontFamily: 'AmaticSC-Regular',
             fontSize: 30,
         },
+        lottieIcon:{
+            flex:2,
+        }
 
     })
 

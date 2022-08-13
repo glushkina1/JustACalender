@@ -1,4 +1,4 @@
-import {format} from 'date-fns'
+import {differenceInDays, format} from 'date-fns'
 import {observer} from 'mobx-react-lite'
 import React, {useContext} from 'react'
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native'
@@ -26,19 +26,37 @@ const TodayScreen = observer(({navigation}: IProps) => {
     const globalStyles = makeGlobalStyles(colors)
 
     const now = new Date()
+    const nowFormatted = format(now, DatePatter.YEAR_MONTH_DAY)
     const todayDate = toLocaleDateToday(now, currentLanguage)
     const {translations} = useContext(LocalizationContext)
 
 
     const periodStarts = () => {
-        const formatted = format(now, DatePatter.YEAR_MONTH_DAY)
-        addNewPeriod(formatted, store)
+        addNewPeriod(nowFormatted, store)
         navigation.navigate('Calendar')
     }
 
-    const number = 12
-    const ovNumber = 17
+    const nextOvulationStart = () => {
+        if (store.nextOvulationStart) {
+            const daysLeft = differenceInDays(
+                new Date(store.nextOvulationStart),
+                new Date(nowFormatted)
+            )
+            return `${daysLeft}`
+        }
+        return translations.errorDaysLeft
 
+    }
+    const nextPeriodStart = () => {
+        if (store.nextPeriodStart) {
+            const daysLeft = differenceInDays(
+                new Date(store.nextPeriodStart),
+                new Date(nowFormatted)
+            )
+            return `${daysLeft}`
+        }
+        return translations.errorDaysLeft
+    }
 
     return (
         <View style={styles.container}>
@@ -53,10 +71,10 @@ const TodayScreen = observer(({navigation}: IProps) => {
                     <Text style={[globalStyles.text,styles.periodText]}>{translations.period}</Text>
                 </View>
                 <View style={styles.periodDaysLeftContainer}>
-                    <Text style={[globalStyles.text,styles.daysLeftText]}>{number} {translations.daysLeft}</Text>
+                    <Text style={[globalStyles.text,styles.daysLeftText]}>{nextPeriodStart()} {translations.daysLeft}</Text>
                 </View>
                 </View>
-                <Text style={[globalStyles.text, styles.ovulationText]}>{translations.ovulation} {ovNumber} {translations.daysLeft}</Text>
+                <Text style={[globalStyles.text, styles.ovulationText]}>{translations.ovulation} {nextOvulationStart()} {translations.daysLeft}</Text>
             </View>
             <View style={styles.buttonContainer}>
                 <TouchableOpacity

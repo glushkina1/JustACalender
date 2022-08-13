@@ -1,10 +1,7 @@
 import {observer} from 'mobx-react-lite'
 import React from 'react'
-import {Dimensions, StyleSheet, Text, View} from 'react-native'
+import { StyleSheet, Text, View} from 'react-native'
 import {useTheme} from 'react-native-paper'
-import Fontisto from 'react-native-vector-icons/Fontisto'
-import Ionicons from 'react-native-vector-icons/Ionicons'
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import {CycleLengthLine} from '../components/settings/CyclePeriodLine'
 import {FeedbackContent} from '../components/settings/FeedbackContent'
 import {LanguageLine} from '../components/settings/LanguageLine'
@@ -16,11 +13,8 @@ import {translations} from '../locale/translations'
 import {useStore} from '../store/rootStore'
 import {makeGlobalStyles} from '../styles/globalStyles'
 
-void MaterialCommunityIcons.loadFont()
-void Fontisto.loadFont()
-void Ionicons.loadFont()
 
-const SettingsScreen = observer(({navigation}) => {
+const SettingsScreen = observer(({}) => {
     const store = useStore()
     const {colors} = useTheme()
     const styles = makeStyles(colors)
@@ -32,21 +26,21 @@ const SettingsScreen = observer(({navigation}) => {
 
     return (
         <View style={styles.container}>
-            <View style={[styles.generalStyle, styles.aboutMe]}>
+            <View style={[globalStyles.generalStyle, styles.aboutMe]}>
                 <Text style={[globalStyles.text, styles.title]}>{translations.aboutMe}</Text>
             </View>
 
-            <View style={[styles.generalStyle, styles.block]}>
+            <View style={[globalStyles.generalStyle, styles.block]}>
                 <UserNameLine colors={colors} userName={store.userName}/>
                 <PeriodLengthLine colors={colors} periodLength={store.periodLength}/>
                 <CycleLengthLine colors={colors} cycleLength={store.cycleLength}/>
             </View>
 
-            <View style={[styles.generalStyle, styles.settingsTitle]}>
+            <View style={[globalStyles.generalStyle, styles.settingsTitle]}>
                 <Text style={[globalStyles.text, styles.title]}>{translations.settings}</Text>
             </View>
 
-            <View style={[styles.generalStyle, styles.block]}>
+            <View style={[globalStyles.generalStyle, styles.block]}>
                 <RemainderLine colors={colors}/>
                 <LanguageLine colors={colors} language={store.language}/>
                 <ThemeLine colors={colors} isDarkMode={store.isDarkMode} toggleDarkMode={toggleDarkMode}/>
@@ -74,11 +68,6 @@ const makeStyles = (colors: ReactNativePaper.ThemeColors) =>
         title: {
             letterSpacing: 0.3,
             fontFamily: 'YanoneKaffeesatz-Regular',
-        },
-        generalStyle: {
-            alignItems: 'center',
-            justifyContent: 'center',
-            width: Dimensions.get('window').width * 0.95,
         },
         block: {
             flex: 4,
