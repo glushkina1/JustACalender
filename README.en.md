@@ -1,6 +1,9 @@
 <h1 align="center">Just A Calendar</h1>
 <h3 align="center">Women's calendar without any advertising, with the ability to share calendar data with a partner</h3>
 
+
+Прочесть это на [русском языке](README.md)
+
 ```
 ░░░░░██╗██╗░░░██╗░██████╗████████╗
 ░░░░░██║██║░░░██║██╔════╝╚══██╔══╝
