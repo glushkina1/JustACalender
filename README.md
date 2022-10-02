@@ -35,6 +35,8 @@ Read this in [English](README.en.md)
 
 Основа моего приложения - работа с календарем ```react-native-calendars```
 
+Оповещения работают благодаря `notifee`
+
 Работа с данными ```mobx, react-native-async-storage ```
 
 Локацизация была настроена через ```react-native-localization```
