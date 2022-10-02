@@ -1,0 +1,25 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/AmaticSC-Bold.ttf",
+      "sha1": "845b7ea45a082b12bebd77a16d2cfb671892de1c"
+    },
+    {
+      "path": "assets/fonts/AmaticSC-Regular.ttf",
+      "sha1": "9aa9f1b9ddbd8340e415b538c513ee2ab92ee2e2"
+    },
+    {
+      "path": "assets/fonts/YanoneKaffeesatz-ExtraLight.ttf",
+      "sha1": "70455555a479476ea523b204b9dada8a45734bc5"
+    },
+    {
+      "path": "assets/fonts/YanoneKaffeesatz-Light.ttf",
+      "sha1": "f8a9dfd5a09d167d67fa9b748f36b960c8fdfda9"
+    },
+    {
+      "path": "assets/fonts/YanoneKaffeesatz-VariableFont_wght.ttf",
+      "sha1": "4aa258f3ddfa520ca1133a75ca531650fb63c4e4"
+    }
+  ]
+}
