@@ -34,6 +34,8 @@ The app was made by following all the rules ```eslint```
 
 The core of my app is calendar operation ```react-native-calendars```
 
+Notifications work thanks to `notifee`
+
 Data handling ```mobx, react-native-async-storage ```
 
 The localization has been configured through ```react-native-localization```
