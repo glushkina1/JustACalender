@@ -40,9 +40,9 @@ The localization has been configured through ```react-native-localization```
 
 For navigation we use ```react-native-screen, react-navigation```
 
-The original splash screen was made with the ```react-native-skia```, which was replaced by a prettier one later, but ready-to-use animation from ```lottie-react-native```
+The original splash screen was made with the ```react-native-skia```, which was replaced by a prettier one later, but ready-to-use animation from ```lottie-react-native``` and `react-native-lottie-splash-screen`
 
-the work with dates is done through  ```date-fns```
+the work with dates is done through  ```date-fns``` and `react-native-date-picker`
 
 
 
@@ -64,8 +64,13 @@ the work with dates is done through  ```date-fns```
 
      ``` yarn ios ```
 
+# Demo on REAL Android:
 
- # Demo screen:
+https://user-images.githubusercontent.com/40953265/193462312-bbe02653-3bb7-4022-9037-c494c33cccd6.mp4
+
+
+
+ # Demo screen on iOS:
  
 https://user-images.githubusercontent.com/40953265/184516152-9ffa6b06-18a2-453b-9f14-c06e868fcc9e.mp4
 
