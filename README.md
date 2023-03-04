@@ -67,15 +67,15 @@ Read this in [English](README.en.md)
 
      ``` yarn ios ```
 
-
- # Демонстрация экрана на реальном Android:
-
-https://user-images.githubusercontent.com/40953265/193462312-bbe02653-3bb7-4022-9037-c494c33cccd6.mp4
-
  
   # Демонстрация экрана iOS:
  
 https://user-images.githubusercontent.com/40953265/184516152-9ffa6b06-18a2-453b-9f14-c06e868fcc9e.mp4
+
+
+ # Демонстрация экрана на реальном Android:
+
+https://user-images.githubusercontent.com/40953265/193462312-bbe02653-3bb7-4022-9037-c494c33cccd6.mp4
 
 
 
